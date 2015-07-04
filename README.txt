@@ -1,5 +1,5 @@
 === WordApp ===
-Contributors: Mobile-Rockstar.com, Dave, Buildappsbiz
+Contributors: MobileRockstar, Buildappsbiz
 Donate link: 
 Tags: wordapp, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone 
 Requires at least: 2.7
