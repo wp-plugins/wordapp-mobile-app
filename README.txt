@@ -20,7 +20,7 @@ If you have any questions:
 You can contact me on (Head developer) :
 
 Email : dave@mobile-rockstar.com
-Twitter : @BuildAppsBiz
+Twitter : @appdevelopersfr
 Facebook : https://www.facebook.com/davidd.anthony.s
 
 Website : http://mobile-rockstar.com (launch on Wednesday).
