@@ -16,11 +16,11 @@ WordApp is a wordpress plugin that converts your blog/website in to a mobile app
 
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
 
-PLEASE NOTE: FOR THE CREATION OF YOUR MOBILE APP THE INFORMATION BELOW IS NEEDED
-1.YOUR BLOG URL
-2.YOUR EMAIL ADDRESS
- 
-THIS INFO IS REQUESTED BY OUR TEAM. THIS IS FOR US TO BE ABLE TO SEND YOU THE APP ONCE IT IS PUBLISH. THE INFORMATION WILL BE SENT TO US IN THE BACKGROUND. YOU WILL NOT BE SPAMED! 
+
+## Message from author ##
+
+- We are currently improving this listing to provide screenshots and a videos to help you.
+
 
 == Installation ==
 
