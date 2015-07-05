@@ -57,6 +57,8 @@ Yes they are native apps & are submited to the app store and google play.
 = Is it really Free? =
 Yes, you can use & create your app for free. We will even help you upload your app for free.
 
+
+
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
 
