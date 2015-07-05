@@ -25,7 +25,7 @@ Facebook : https://www.facebook.com/davidd.anthony.s
 
 Website : http://mobile-rockstar.com (launch on Wednesday).
 
-Viber: <a href="viber://0033650357887”>Call Viber</a>
+Phone : +33 650357887
 
 Forum : https://wordpress.org/support/plugin/wordapp-mobile-app
 
