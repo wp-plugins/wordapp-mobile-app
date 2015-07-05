@@ -1,4 +1,4 @@
-=== WordApp Create a Free Mobile App for iPhone & Android ===
+=== WordApp | Mobile App iPhone & Android Free ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
 Tags: wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
@@ -8,10 +8,10 @@ Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordApp - Convert Wordpress blog/website in to a Mobile app & mobile website.
+WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website in to a Mobile app & mobile website.
 
 == Description ==
-
+WordApp | Mobile App iPhone & Android Free
 WordApp is a wordpress plugin that converts your blog/website in to a mobile app & mobile website. Built by a community of mobile app geeks we are really proud to offer the very first mobile app building plugin for wordpress.
 
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
@@ -31,7 +31,6 @@ Forum : https://wordpress.org/support/plugin/wordapp-mobile-app
 
 
 ! Please note we are working hard to improve this listing & build our website ! 
-
 
 == Installation ==
 
