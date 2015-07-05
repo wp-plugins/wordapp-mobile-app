@@ -1,7 +1,7 @@
 === WordApp | Mobile App iPhone & Android Free ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
-Tags: wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
+Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
 Requires at least: 2.7
 Tested up to: 4.2.2
 Stable tag: 0.2
