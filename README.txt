@@ -1,4 +1,4 @@
-=== WordApp Create a Free Mobile App ===
+=== WordApp Create a Free Mobile App for iPhone & Android ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
 Tags: wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
