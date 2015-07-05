@@ -57,8 +57,6 @@ Yes they are native apps & are submited to the app store and google play.
 = Is it really Free? =
 Yes, you can use & create your app for free. We will even help you upload your app for free.
 
-
-
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
 
@@ -71,6 +69,25 @@ Not yet but we are really working hard on building a woocommerce app. You can he
 = Do you take any of my personal information? =
 Yes, for us to be able to send you, your app we need your email address. We also need the blog url to populate your app.
 
+= Do you own the copyright to the apps' content? =
+You of course you own the copyright to your content.
+
+= What processes do you have to update the app? =
+The content stays on your site the app is updated via json.
+
+= What process do you have to delete the app? =
+The app is published to your account on google play & the app store so you can delete it at any time. If you want to upload to our account "just drop us an email".
+
+= What happens to the APKs etc if you go broke? =
+You receive a copy of the APK via email. The APK will continue to work if we go broke.
+
+= What is your Privacy Policy? =
+I'm uploading our privacy policy to our site today.
+
+= What are your complete Terms and Conditions? =
+I'm uploading our Terms and Conditions to our site today.
+
+
 = How long does it take to validate my app? =
 Once you publish your app, it will go through several stages.
 1. We will build the app for you around (48 hours)
@@ -78,6 +95,8 @@ Once you publish your app, it will go through several stages.
 3. You app will go through a validation process.
  - Apple do not state a delay for validation but we normally see apps validated with 10 working days (but this is up to Apple).
  - Google is much faster and you should generally see your app in all stores with 24 hours.
+
+
 
 == Screenshots ==
 
