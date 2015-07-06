@@ -29,10 +29,10 @@ if ( !current_user_can( 'manage_options' ) )  {
 	    <div style="float:left;text-align:center;margin-left: 140px;">
 		     <?php
 		      if(get_option( 'wordapp_firstVisit' ) == ""){
-			  $activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json"));	
+			  $activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=".get_bloginfo('admin_email')."&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json"));	
 			  }
 		      else{
-$activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json&noemail=yes"));	
+$activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=".get_bloginfo('admin_email')."&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json&noemail=yes"));	
 		  }
 		   ?>
 			
