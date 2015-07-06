@@ -25,7 +25,7 @@ Email : dave@mobile-rockstar.com
 
 Twitter : @appdevelopersfr
 
-Facebook : https://www.facebook.com/davidd.anthony.s
+Facebook : https://www.facebook.com/WordAppMobileApp
 
 Website : http://mobile-rockstar.com
 
