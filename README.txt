@@ -95,6 +95,13 @@ Once you publish your app, it will go through several stages.
  - Apple do not state a delay for validation but we normally see apps validated with 10 working days (but this is up to Apple).
  - Google is much faster and you should generally see your app in all stores with 24 hours.
 
+= Will this plugin work on MU =
+Yes, we have tested on Mu if you do encounter any problems please drop me a mail dave@mobile-rockstar.com
+
+= Can I install on local machine =
+
+No, due to the way the app framework works (fetching the json) you must have a domain name/public static IP.
+
 == Screenshots ==
 
 1. Our dashboard - get latest news about mobile marketing.
