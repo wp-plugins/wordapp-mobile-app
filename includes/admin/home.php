@@ -517,7 +517,8 @@ else if($active_tab == "step4"){
 		
 	if($u >= 5){
 		?>
-	<input type="hidden" name="email" id="email" value="<?php echo get_bloginfo('admin_email') ?>">
+<h3>To which email address would you like us to send your app ?</h3><br>
+	<input type="text" name="email" id="email" placeholder="Your email address" value="<?php echo get_bloginfo('admin_email') ?>"><br>
 								<input type="hidden" name="url" id="url" value="<?php echo get_bloginfo('url') ?>">
 								
 								<input type="hidden" name="user" id="user" placeholder="Your Name" value="<?php echo get_bloginfo('name') ?>">

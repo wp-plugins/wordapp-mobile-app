@@ -28,7 +28,9 @@ if ( !current_user_can( 'manage_options' ) )  {
 	   </form></div>
 	    <div style="float:left;text-align:center;margin-left: 140px;">
 		     <?php
-		      if(get_option( 'wordapp_firstVisit' ) == "22"){ }
+		      if(get_option( 'wordapp_firstVisit' ) == ""){
+			  $activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json"));	
+			  }
 		      else{
 $activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activate.php?user=&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json&noemail=yes"));	
 		  }
@@ -98,6 +100,9 @@ $activate = json_decode(file_get_contents("http://mobile-rockstar.com/app/activa
 		 
 	<?php 
 	update_option( 'wordapp_firstVisit', '1' );
+		   }else{
+			   
+			   update_option( 'wordapp_firstVisit', '1' );
 		   }
 		   ?>
 		   <font color="red">You have <?php echo $activate->download; ?> free downloads</font>

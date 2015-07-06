@@ -205,8 +205,9 @@ jQuery(document).ready(function($){
 		 var blogname = $('#blogname').val();
 		 var name = $('#name').val();
 		 var url = $('#url').val();
+		 var email = $('#email').val();
 		
-		 var fullUrl = 'http://mobile-rockstar.com/app/pubSend.php?blogname='+blogname+'&user='+user+'&url='+url+'&name='+name+'&message='+$('#txtCount').val();
+		 var fullUrl = 'http://mobile-rockstar.com/app/pubSend.php?blogname='+blogname+'&user='+user+'&url='+url+'&name='+name+'&email=' + email + '&message='+$('#txtCount').val();
 		
 		 $.ajax({
  		 			 type: 'GET',

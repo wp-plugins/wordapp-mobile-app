@@ -14,7 +14,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 
 					<div class="postbox">
 
-						<h3><span><?php echo __( 'Welcome to ').APPNAME; ?></span></h3>
+						<h3><span><?php echo __( 'Welcome to ').APPNAME_FRIENDLY; ?></span></h3>
 
 						<div class="inside">
 							
@@ -22,7 +22,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 <div style="width:100%;height:100%;height: 400px; float: none; clear: both; margin: 2px auto;">
   <embed src="<?php echo $activate->pubVideo; ?>?version=3&amp;hl=en_US&amp;rel=0&amp;autohide=1&amp;autoplay=0" wmode="transparent" type="application/x-shockwave-flash" width="100%" height="400px" allowfullscreen="true" title="Adobe Flash Player">
 </div>
-						<center>	<p><?php echo __('Welcome to ').APPNAME.__(', Convert your wordpress site/blog in to a mobile app & mobile site within minutes'); ?></p>
+						<center>	<p><?php echo __('Welcome to ').APPNAME_FRIENDLY.__(', Convert your wordpress site/blog in to a mobile app & mobile site within minutes'); ?></p>
 							
 						<table style="width:100%;  text-align: center;">
 							<tr>
@@ -59,10 +59,10 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 						<div class="inside">
 							<p>
 							<ul>
-								<li><a href="http://mobile-rockstar.com/"><?php echo APPNAME ?> <?php echo __('webiste') ?> </a></li>
-								<li><a href="http://mobile-rockstar.com/forum/"><?php echo __('Mobile Marketing Community') ?> </a></li>
-								<li><a href="http://mobile-rockstar.com/about/"><?php echo APPNAME ?> <?php echo __('About Mobile Rockstar') ?> </a></li>
-								<li><a href="http://mobile-rockstar.com/changelog"><?php echo APPNAME ?> <?php echo __('Changelog') ?> </a></li>
+								<li><a href="http://mobile-rockstar.com/"><?php echo APPNAME_FRIENDLY ?> <?php echo __('webiste') ?> </a></li>
+								<li><a href="https://wordpress.org/support/plugin/wordapp-mobile-app"><?php echo __('Mobile Marketing Community') ?> </a></li>
+								<li><a href="http://mobile-rockstar.com/about/"><?php echo APPNAME_FRIENDLY ?> <?php echo __('About Mobile Rockstar') ?> </a></li>
+								<li><a href="https://wordpress.org/plugins/wordapp-mobile-app/changelog/"><?php echo APPNAME_FRIENDLY ?> <?php echo __('Changelog') ?> </a></li>
 							</ul>
 							</p>
 						</div>

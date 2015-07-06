@@ -10,6 +10,7 @@
   Copyright: Mobile Rockstar
 */
 define('APPNAME', 'wordapp-mobile-app');
+define('APPNAME_FRIENDLY', 'WordApp');
 define('PLUGIN_URL', 'http://mobile-rockstar.com/app/main/app.php');
 define('MAINURL', 'admin.php?page=WordApp');
 
@@ -22,7 +23,10 @@ class WordAppClass
 static private $class = null;
 
  
-
+public function init()
+  {
+   
+  }
   function __construct()
 	{
 		// actions

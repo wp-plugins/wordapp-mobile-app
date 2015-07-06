@@ -4,7 +4,7 @@ Donate link:
 Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
 Requires at least: 2.7
 Tested up to: 4.2.2
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ Yes they are native apps & are submited to the app store and google play.
 
 = Is it really Free? =
 Yes, you can use & create your app for free. We will even help you upload your app for free.
+
+= Are there any premium options? =
+Yes, if you want to send push notifications you will be charged a monthly fee of $9.99
 
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
@@ -115,6 +118,11 @@ No, due to the way the app framework works (fetching the json) you must have a d
 * Initial release
 = Version 0.2 =
 * Fix a couple of bugs
+= Version 0.3 = 
+* Fixed image problems
+* Fixed email bug
+* Fixed init error message
+
 
 == Upgrade notice ==
 
