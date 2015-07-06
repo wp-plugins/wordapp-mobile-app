@@ -16,21 +16,22 @@ WordApp is a wordpress plugin that converts your blog/website in to a mobile app
 
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
 
+
 If you have any questions:
+
 You can contact me on (Head developer) :
 
 Email : dave@mobile-rockstar.com
+
 Twitter : @appdevelopersfr
+
 Facebook : https://www.facebook.com/davidd.anthony.s
 
-Website : http://mobile-rockstar.com (launch on Wednesday).
+Website : http://mobile-rockstar.com
 
 Phone : +33 650357887
 
 Forum : https://wordpress.org/support/plugin/wordapp-mobile-app
-
-
-! Please note we are working hard to improve this listing & build our website ! 
 
 
 == Installation ==
