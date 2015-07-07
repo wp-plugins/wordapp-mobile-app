@@ -365,7 +365,7 @@ else if($active_tab == "step4"){
 <div style="width:100%;height:100%;height: 400px; float: none; clear: both; margin: 2px auto;">
   <embed src="<?php echo $activate->pubVideo; ?>?version=3&amp;hl=en_US&amp;rel=0&amp;autohide=1&amp;autoplay=0" wmode="transparent" type="application/x-shockwave-flash" width="100%" height="400px" allowfullscreen="true" title="Adobe Flash Player">
 </div>							
-<h2><?php echo __('We will send your your app to apple & android for free!');?></h2>
+<h2><?php echo __('We will send your your app to apple & android for free (launch offer limited to our first 1000 users)!');?></h2>
 
 <h2 style="color:red"><?php echo __('You have');?> <?php echo $activate->upload; ?>  <?php echo __('app publish credit (for free!)');?></h2>
 
