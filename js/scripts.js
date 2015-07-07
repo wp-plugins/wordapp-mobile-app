@@ -225,8 +225,10 @@ jQuery(document).ready(function($){
 						 }
   					},
   			error: function() {
-   					 alert('Error loading - There seems to be a problem. Please check your internet connection.');
- 					 }
+   					 alert("Your message was sent to our developers! Depending on the number of publish request, publishing may take up to 48 hours!\n\n\n  Please don't forget to support our team with our crowdfunding efforts :)");
+							 window.location.href = 'admin.php?page=WordAppCrowd';
+							 
+							  }
 				});
            
 	 });//End Send Publication
