@@ -24,6 +24,8 @@ Email : dave@mobile-rockstar.com
 
 Twitter : @appdevelopersfr
 
+Slack : @appdeveloper on Slack
+
 Facebook : https://www.facebook.com/WordAppMobileApp
 
 Website : http://mobile-rockstar.com
