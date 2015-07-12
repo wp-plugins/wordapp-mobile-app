@@ -32,6 +32,7 @@ Forum : https://wordpress.org/support/plugin/wordapp-mobile-app
 
 ! Please note we are working hard to improve this listing & build our website ! 
 
+
 == Installation ==
 
 2.6 and Older You will have to upgrade. Unfortunately we don’t support 2.6 and lower.
@@ -55,6 +56,9 @@ Yes they are native apps & are submited to the app store and google play.
 
 = Is it really Free? =
 Yes, you can use & create your app for free. We will even help you upload your app for free.
+
+= Are there any premium options? =
+Yes, if you want to send push notifications you will be charged a monthly fee of $9.99
 
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
@@ -94,6 +98,7 @@ Once you publish your app, it will go through several stages.
 3. You app will go through a validation process.
  - Apple do not state a delay for validation but we normally see apps validated with 10 working days (but this is up to Apple).
  - Google is much faster and you should generally see your app in all stores with 24 hours.
+
 
 = Will this plugin work on MU =
 Yes, we have tested on Mu if you do encounter any problems please drop me a mail dave@mobile-rockstar.com
