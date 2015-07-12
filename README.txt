@@ -1,7 +1,8 @@
 === WordApp | Mobile App iPhone & Android Free ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
-Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,  
+Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, buddypress app,iOS app, app builder, build a mobile app
+
 Requires at least: 2.7
 Tested up to: 4.2.2
 Stable tag: 1.0
@@ -29,6 +30,7 @@ Some of the new features
 * Mobile site included
 
 
+
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
 
 If you have any questions:
@@ -50,6 +52,9 @@ Phone : +33 650357887
 Forum : https://wordpress.org/support/plugin/wordapp-mobile-app
 
 
+
+[youtube https://www.youtube.com/watch?v=gl5BvamAILE]
+**Sorry for bad sound quality we are rerecording this week**
 
 == Installation ==
 
