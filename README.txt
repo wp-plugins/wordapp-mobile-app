@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website in to a Mobile app & mobile website.
 
 == Description ==
-WordApp | Mobile App iPhone & Android Native app & Mobile site in one
+WordApp | **Mobile App** iPhone & Android Native app & **Mobile site** in one
 
 **Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
 
