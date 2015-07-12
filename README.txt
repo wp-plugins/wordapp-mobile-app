@@ -1,7 +1,7 @@
 === WordApp | Mobile App iPhone & Android Free ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
-Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, buddypress app,iOS app, app builder, build a mobile app
+Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, buddypress app,iOS app, app builder, build a mobile app, WooCommerce app
 
 Requires at least: 2.7
 Tested up to: 4.2.2
@@ -78,10 +78,10 @@ You will also be requested to install 2 other plugins. Simply click begin instal
 Yes they are native apps & are submited to the app store and google play.
 
 = Is it really Free? =
-Yes, you can use & create your app for free. We will even help you upload your app for free.
+Yes, you can use & create your app for free. You are requested to invite some friends :).
 
 = Are there any premium options? =
-Yes, if you want to send push notifications you will be charged a monthly fee of $9.99
+Yes, to get the iOS app and if you want to send push notifications you will be charged a monthly fee of $9.99.
 
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
@@ -90,7 +90,7 @@ Yes, you can choose either or both.
 We are currently working on a windows phone addon.
 
 = Can I use a WooCommerce site? =
-Not yet but we are really working hard on building a woocommerce app. You can help us with our crowdfunding project.
+Yes it does now.
 
 = Do you take any of my personal information? =
 Yes, for us to be able to send you, your app we need your email address. We also need the blog url to populate your app.
