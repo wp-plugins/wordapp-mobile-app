@@ -145,7 +145,12 @@ No, due to the way the app framework works (fetching the json) you must have a d
 * Fixed image problems
 * Fixed email bug
 * Fixed init error message
-
+= Version 1.0 = 
+Huge changes have been made to the structure of the app builder.
+* Fixed any bugs
+* Added new builder
+* Improve the compatibility with other plugins buddypress, forms etc
+* Mobile site builder added 
 
 == Upgrade notice ==
 
