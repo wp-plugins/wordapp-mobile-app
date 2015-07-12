@@ -31,7 +31,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								<td style="width:33%"><img src="<?php echo plugins_url(APPNAME.'/images/heart.png'); ?>"><h3><?php echo __('Our Community');?></h3><?php echo __('We started as a bunch of geek and now we have an amazing mobile rockstars community.');?></td>
 							</tr>
 							</table>
-							<h1>The best part is : IT'S FREE</h1>
+							<h1>Invite your friends and get your app for FREE!</h1>
 							</center>
 						</div>
 						<!-- .inside -->
