@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for Free
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:0.3
+  Version:1.0
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -13,8 +13,7 @@ define('APPNAME', 'wordapp-mobile-app');
 define('APPNAME_FRIENDLY', 'WordApp');
 define('PLUGIN_URL', 'http://mobile-rockstar.com/app/main/app.php');
 define('MAINURL', 'admin.php?page=WordApp');
-
-require_once dirname( __FILE__ ) . '/third/class-tgm-plugin-activation.php';
+define('DEFAULT_WordApp_THEME', 'wordappjqmobile');
 
 class WordAppClass
 {
@@ -22,14 +21,13 @@ class WordAppClass
 
 static private $class = null;
 
- 
-public function init()
-  {
-   
-  }
+
   function __construct()
 	{
 		// actions
+	  
+ 		$this->WordApp_mobile_detect();
+		$this->init();
 		add_action('init', array($this, 'init'), 1);
 		
 		/*- import needed scripts & styles -*/
@@ -45,14 +43,100 @@ public function init()
 		add_filter( 'json_prepare_post',  array($this, 'api_to_wordapp'), 10, 3 );
 		add_action( 'admin_menu',  array($this, 'register_WordApp_menu') );
 		add_action( 'admin_init',  array($this, 'WordAppSettingValues') );
-		add_action('init', array($this, 'produce_my_json'));
-	  	add_action( 'tgmpa_register', array($this, 'include_wordApp_rest_api'));
-		
+		add_action('init', array($this, 'WordApp_produce_my_json'));
+	  	
+	  	add_action('plugins_loaded', array($this, 'WordApp_mobile_detect'));
+	  
 		 /*- WP REST API -*/
 		//$this->include_wp_rest_api();
-	}
+	  
 
+  /*-- Theme switch for mobile sites --*/
+		
+	}
+ function init()
+  {
+   
+  }
+function WordApp_mobile_detect(){
+	  /*-- Theme switch for mobile sites --*/
+	
+	if ( ! class_exists( 'Mobile_Detect' ) ){
+		require plugin_dir_path( __FILE__ ).'third/Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+
+		$is_mobile = $detect->isMobile();
+			
+	}
+	$varGA = (array)get_option( 'WordApp_ga' ); 
+	
+	  		if ( $_GET['WordApp_mobile_site'] === 'desktop' ) {
+
+				setcookie( 'WordApp_mobile_site','desktop', time()+3600*6, '/' );
+
+				$_COOKIE['WordApp_mobile_site'] = 'desktop';
+
+			}
+	  		if ( $is_mobile == true && ($_GET['WordApp_mobile_site'] === 'mobile'  || $_GET['WordApp_mobile_site']  =='' )) {
+
+				setcookie( 'WordApp_mobile_site','mobile', time()+3600*6, '/' );
+
+				$_COOKIE['WordApp_mobile_site'] = 'mobile';
+
+			}
+	  
+			if ( $_GET['WordApp_mobile_app'] === 'app' ) {
+
+				setcookie( 'WordApp_mobile_app',true, time()+3600*6, '/' );
+
+				$_COOKIE['WordApp_mobile_app'] = true;
+			}
+	 	 if ( $_GET['WordApp_goodbye_mobile'] === '1' ) {
+
+				  setcookie( 'WordApp_mobile_app', true, time()-100, '/' );
+
+				unset( $_COOKIE['WordApp_mobile_app'] );
+			}
+	
+	
+  if($_GET['WordApp_demo'] == '1' || ($_COOKIE['WordApp_mobile_site'] == 'mobile' &&  $varGA['mobilesite'] == "on") || $_COOKIE['WordApp_mobile_app'] == true)  {
+		add_filter( 'theme_root',array( $this, 'WordApp_change_theme_root' ) );
+		add_filter( 'stylesheet_directory_uri', array( $this, 'WordApp_change_theme_root_css_uri' ) );
+		add_filter( 'template_directory_uri', array( $this, 'WordApp_change_theme_root_uri' ) );
+		add_filter( 'template', array( $this, 'WordApp_fxn_change_theme' ) );
+		add_filter( 'stylesheet', array( $this, 'WordApp_fxn_change_theme' ) );
+		  show_admin_bar(false);
+	  }	
+  }
+	
+function WordApp_change_theme_root()
+{
+    // Return the new theme root
+    return plugin_dir_path( __FILE__ ) . 'themes';
+}
+
+function WordApp_change_theme_root_uri()
+{ 
+     // Return the new theme root uri
+     return plugins_url('themes/wordappjqmobile', __FILE__ );
+}
+	function WordApp_change_theme_root_css_uri()
+{ 
+     // Return the new theme root uri
+     return plugins_url('themes/wordappjqmobile', __FILE__ );
+}
+	
+	
+	function WordApp_fxn_change_theme($theme) {
+
+ 
+    $theme = DEFAULT_WordApp_THEME;
   
+  	return $theme;
+	}
+	
+	
+	
 /* -- On install  -- */
 function WordApp_activate() {
 
@@ -100,7 +184,7 @@ function WordAppPluginsAndThemes(){
 /* ----  /Admin Pages ------ */
 
 /*--  JSON RETURN --*/
-function produce_my_json() {
+function WordApp_produce_my_json() {
   if (!empty($_GET['wp_apppp'])) {
     $jsonpost = array();
     	$jsonpost["id"] = "mobileApp";
@@ -138,6 +222,12 @@ function produce_my_json() {
 	  	$jsonpost["slide"][2]	= $varSlideshow['three'];
 	  	$jsonpost["slide"][3]	= $varSlideshow['four'];
 	  	$jsonpost["slide"][4]	= $varSlideshow['five'];
+	  
+	  	$jsonpost["icon"] = $varStructure['icon'];
+      	$jsonpost["splash"] 	= $varStructure['splash'];
+      	$jsonpost["description"] 		= $varStructure['description'];
+      	$jsonpost["cat"] 		= $varStructure['cat'];
+	  	$jsonpost["keywords"] 		= $varStructure['keywords'];
       
       //$menuItems = wp_get_nav_menu_items($varMenu['bottom']);
      $menuItems =   wp_get_nav_menu_items(  $varMenu['menuBottom'] );
@@ -226,14 +316,17 @@ return $newinput;
 	
 	add_submenu_page( $menu_slug, __('App Builder'), __('App Builder'), $capability, 'WordAppBuilder', array($this, 'WordAppBuilder') );
 	
-	add_submenu_page( $menu_slug, __('Get more downloads!'), __('Get more downloads!'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
+	
 	
 	add_submenu_page( $menu_slug, __('Push Notifications'), __('Push Notifications'), $capability, 'WordAppPN', array($this, 'WordAppPN') );
+	add_submenu_page( $menu_slug, __('Tell a friend'), __('Tell a friend'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
 	// add_submenu_page( $menu_slug, __('Stats'), __('Stats'), $capability, 'WordAppStats', array($this, 'WordAppStats') ); // USING GA until find a better solution
 	add_submenu_page( $menu_slug, __('Settings'), __('Settings'), $capability, 'WordAppSettings', array($this, 'WordAppSettings') );
 	//add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	add_submenu_page( $menu_slug, __('The Crowd'), __('The Crowd'), $capability, 'WordAppCrowd', array($this, 'WordAppCrowd') );
 
+	
+		
 		}
 /* ----  /Admin Menu ------ */
 
@@ -243,89 +336,13 @@ return $newinput;
 /* ---Adding WP REST API --- */
 	function api_to_wordapp( $_post, $post, $context ) {
 
-	    // get all the fields of this post from Advanced Custom Fields
-	    if( function_exists( "get_fields" ) )
-	    {
-	    	$fields = get_fields( $post['ID'] );
-	    	$_post['wordapp_content']['acf'] = $fields;
-	    }
-
-	    // add the html content of the post to wordapp_content
-	    $html = str_replace( PHP_EOL, '', wpautop( strip_tags( do_shortcode( $post['post_content'] ), '<h1><h2><h3><h4><h5><h6><img><p><ul><li><a><strong>'), false ) );
-	    $_post['wordapp_content']['html'] = apply_filters( "wordapp_prepare_html", $html );
-
-
-	    return $_post;
+	   
 	}
 
 	
 	 function include_wordApp_rest_api() {
 		
-		 
-		  $plugins = array(
-
-        // This is an example of how to include a plugin pre-packaged with a theme.
-        
-		array(
-            'name'               => 'WP API Menus', // The plugin name.
-            'slug'               => 'wp-api-menus', // The plugin slug (typically the folder name).
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-		array(
-            'name'               => 'WP REST API', // The plugin name.
-            'slug'               => 'json-rest-api', // The plugin slug (typically the folder name).
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-
-    );
-
-    /**
-     * Array of configuration settings. Amend each line as needed.
-     * If you want the default strings to be available under your own theme domain,
-     * leave the strings uncommented.
-     * Some of the strings are added into a sprintf, so see the comments at the
-     * end of each line for what each argument will be.
-     */
-    $config = array(
-        'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-        'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
-        'strings'      => array(
-            'page_title'                      => __( 'Install Required Plugins', 'tgmpa' ),
-            'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
-            'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-            'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-            'return'                          => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-            'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
-            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
-            'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-        )
-    );
-
-    tgmpa( $plugins, $config );
-		 
+		  
 		 
 	}
 

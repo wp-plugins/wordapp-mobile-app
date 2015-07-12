@@ -25,7 +25,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
  								settings_fields( 'WordApp_main_ga' );
 								
 
-							if(json_decode(file_get_contents("http://mobile-rockstar.com/app/pn.php?login=".$varGA['apiLogin']."&apiKey=".$varGA['apiKey']."&longUrl=&format=json"))->pn == "false"){	
+							if(json_decode(wp_remote_retrieve_body(wp_remote_get("http://mobile-rockstar.com/app/pn.php?login=".$varGA['apiLogin']."&apiKey=".$varGA['apiKey']."&longUrl=&format=json")))->pn == "false"){	
 								?>
 									<h2 style="text-align: center;">
 										<?php echo __('Increase customer engagement thanks to push notifications !'); ?>	

@@ -46,7 +46,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 	  <h3>Top toolbar configuration</h3>
 	  <span style="float:right" class="spanHelp"></span>				
 	<hr> 
-	  <p> 	<label for="WordApp_options[Title]"><?php echo __('App Title' ); ?></label>
+	  <p> 	<label for="WordApp_options[Title]"><?php echo __('App Name' ); ?></label>
    	<input type="text" id="WordAppColor_Title" name="WordApp_options[Title]" value="<?php echo $varColor['Title']; ?>"/></p>
    
    	<p> 	<label for="WordApp_options[logo]"><?php echo __('App Logo' ); ?></label>
@@ -70,7 +70,8 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
         <label for="WordApp_options[style]"><?php echo __('App Style' ); ?></label>
        <div style="left: 100px;top: -70px;position: relative;">
 			<input type="radio" name="WordApp_options[style]" id="listStyle" value="list" <?php echo ($varColor['style'] == 'list' ? 'checked' : '')?>><?php echo __('List of posts'); ?><br>
-			<input type="radio" name="WordApp_options[style]" id="pageStyle" value="page" <?php echo ($varColor['style'] == 'page' ? 'checked' : '')?>><?php echo __('A page'); ?>
+			<input type="radio" name="WordApp_options[style]" id="listStyle" value="tiles" <?php echo ($varColor['style'] == 'tiles' ? 'checked' : '')?>><?php echo __('Large Tiles'); ?><br>
+		    <input type="radio" name="WordApp_options[style]" id="pageStyle" value="page" <?php echo ($varColor['style'] == 'page' ? 'checked' : '')?>><?php echo __('A page'); ?>
        
         <p id="pageInfo" style="<?php echo ($varColor['style'] !== 'page' ? 'display:none' : '')?>">
         <?php 
@@ -141,11 +142,23 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 		<ul style="position: relative;top: 0px;left: 50px;">
 		
 		<?php
-		$json = file_get_contents('http://mobile-rockstar.com/?json_route=/menus/'.$varMenu['menuBottom']);
-	$menufull = json_decode($json,true);
- 	$menuItems =  $menufull['items'];
-		 for ($i = 0; $i < count($menuItems); ++$i) {
-    		 echo "<li><span>". $menuItems[$i]['title']."</span>";
+						
+			
+   
+			
+			
+						
+						
+						
+						
+						
+						
+	$menu_items = wp_get_nav_menu_items($varMenu['menuBottom']);
+
+	$i =0;
+	foreach ( (array) $menu_items as $key => $menu_item ) {
+   
+    		 echo "<li><span>". $menu_item->title."</span>";
     		// echo $varMenu['bottomIcon'][$i];
      ?>
      
@@ -153,10 +166,11 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 		<?php echo listOfIcons($varMenu['bottomIcon'][$i]); ?>
 		</select><br></li>
 		<?php
-    }
+   $i++;
+	}
 					?></ul>
 		
-		<input style="position: relative;float: right;top: -100px;right: 210px;" id="jqIcons" type="button" class="button" value="<?php echo __( 'Preview Icons' ); ?>" />
+		<input style="position: relative;float: right;top: -223px;right: 210px;" id="jqIcons" type="button" class="button" value="<?php echo __( 'Preview Icons' ); ?>" />
         </div>
         <?php
         }else if($active_tab == "step3"){
@@ -365,9 +379,8 @@ else if($active_tab == "step4"){
 <div style="width:100%;height:100%;height: 400px; float: none; clear: both; margin: 2px auto;">
   <embed src="<?php echo $activate->pubVideo; ?>?version=3&amp;hl=en_US&amp;rel=0&amp;autohide=1&amp;autoplay=0" wmode="transparent" type="application/x-shockwave-flash" width="100%" height="400px" allowfullscreen="true" title="Adobe Flash Player">
 </div>							
-<h2><?php echo __('We will send your your app to apple & android for free (launch offer limited to our first 1000 users) !');?></h2>
+<h2><?php echo __('We will send your your app to android for free (launch offer limited to our first 1000 users)!');?></h2>
 
-<h2 style="color:red"><?php echo __('You have');?> <?php echo $activate->upload; ?>  <?php echo __('app publish credit (for free!)');?></h2>
 
 
 <p><strong><?php echo __('Check List');?></strong></p>
@@ -518,18 +531,69 @@ else if($active_tab == "step4"){
 	if($u >= 5){
 		?>
 <h3>To which email address would you like us to send your app ?</h3><br>
-	<input type="text" name="email" id="email" placeholder="Your email address" value="<?php echo get_bloginfo('admin_email') ?>"><br>
+	<input type="text" name="email" id="email" style="width: 400px;text-align: center;height: 50px;margin: 11px;font-size: 20px;" placeholder="Your email address" value="<?php echo get_bloginfo('admin_email') ?>"><br>
 								<input type="hidden" name="url" id="url" value="<?php echo get_bloginfo('url') ?>">
 								
 								<input type="hidden" name="user" id="user" placeholder="Your Name" value="<?php echo get_bloginfo('name') ?>">
 							
-			<input value="Publish my app!" id="submitPub"  class="button button-primary" name="publish">
 			
+								
+<table class="widefat" width="30%" style="  width: 36%;">
+	<thead>
+	<tr>
+		<th class="row-title"><?php echo __( 'Publish Your App' ); ?></th>
+
+	</tr>
+	</thead>
+	<tbody>
+		<tr class="alternate">
+		<td class="row-title"><?php echo __( 'App on iOS & Android' ); ?></td>
+	
+	</tr>
+	<tr>
+		<td class="row-title"><?php echo __( 'Unlimited push notifications' ); ?></td>
+		
+	</tr>
+	<tr class="alternate">
+		<td class="row-title"><?php echo __( 'Schedule push notes (July)' ); ?></td>
+	
+	</tr>
+	<tr>
+		<td class="row-title"><?php echo __( 'HTML Rich windows' ); ?></td>
+		
+	</tr>
+		<tr class="alternate">
+		<td class="row-title"><?php echo __( 'Unlimited Downloads' ); ?></td>
+	
+	</tr>
+	<tr>
+		<td class="row-title"><?php echo __( 'We will upload your app for you'); ?></td>
+		
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<th class="row-title" style="color:green"><center><?php echo __( 'Only $9.99 USD per month' ); ?></center></th>
+	
+	</tr>
+	</tfoot>
+</table>
+								<input type="hidden" name="user" id="user"  value="<?php echo get_bloginfo('url') ?>">
+							<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish my app!">
+							
+
+<?php 
+			if($activate->download =='UNLIMITED') { 
+			echo '<hr> You have enough credits to get your app on android for free ! <br /><input value="Use my credits" id="submitPub"  type="button" class="button button-primary" name="publish">'; 
+	   
+											}
+			
+			/* <input value="Publish my app!" id="submitPub"  type="button" class="button button-primary" name="publish"> */ ?>
 	   <?php
 	}
 			
 		}
-        ?>
+        ?></center>
 <?php if($active_tab == "step4"){
 			
 		}else{
@@ -562,14 +626,23 @@ else if($active_tab == "step4"){
 									'Preview my app'
 								); ?></span></h3>
 
-						<div class="inside">    
+						<div class="inside"> 
+							
+							
          	<div id="preview">
-					<img id="previewApp" data-webid="<?php echo base64_encode(get_bloginfo('url')) ?>" src="<?php echo plugins_url(APPNAME.'/images/phone_frame.png')?>" width="100%">
+					
+				
+				<div class="ios-device ios-device--large ios-device--black iphone-6--large" style="width: 100%;
+  height: 620px">
+					<div class="ios-device__screen" ><iframe width="100%" height="100%" src="http://52.27.101.150/dev/wordpress/?WordApp_demo=1"></iframe></div>
+</div>
+				<hr><center> <input type="button" class="button button-primary" value="Preview app in mobile browser" id="previewApp" > </center>
 				</div>
 			<div style="" id="myPreview" style=";">
 				<center><h1 style="font-size: 10px;">Preview my app in mobile browser</h1>
-				<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fmobile-rockstar.com%2Fapp%2Fmain%2Fapp.php%3Furl%3D<?php echo base64_encode(get_bloginfo('url')) ?>&choe=UTF-8" title="" />
+				<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo urlencode(get_bloginfo('url')) ?>&choe=UTF-8" title="" />
 				<br> Scan this QR code with your mobile phone to view your app in your mobile browser.
+					<hr><b>	PLEASE NOTE : You must set <u>mobile site</u> active in settings.</b>
 				</center>
 			
 						</div>
@@ -647,7 +720,6 @@ function WordApp_nav_menu_drop_down( $name, $selected = '', $print = TRUE )
     // Set name and ID to let you use a <label for='id_$name'>
     $out = "<select name='$name' id='id_$name'>\n";
   $out .= "\t<option value='' $active $title>".__('Select a menu')."</option>\n";
-  $out .= "\t<option value='any' $active $title>".__('List of pages')."</option>\n";
   //print_r($menus);
     foreach ( $menus as $menu )
     {

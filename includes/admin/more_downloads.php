@@ -14,14 +14,14 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 
 					<div class="postbox">
 
-						<h3><span><?php echo __( 'Welcome to ').APPNAME; ?></span></h3>
+						<h3><span><?php echo __( 'Welcome to ').APPNAME_FRIENDLY; ?></span></h3>
 
 						<div class="inside">
 							<h2 style="text-align: center;">
-							<?php echo __('Get unlimited downloads by inviting your friends to ').APPNAME.__('!'); ?>	
+							<?php echo __('Get your free android app with ').APPNAME_FRIENDLY.__('!'); ?>	
 							</h2>	
-							<p class="message_invite"><?php echo __('For every friend who joins and installs ').APPNAME.__(' on their wordpress site, we\'ll give you 250 of bonus downloads (up to a 8 invites and after that you will upgraded to unlimited)! 
-If you need unlimited downloads straight away, '); ?><a href="admin.php?page=WordAppPN"><? echo __('upgrade your account.'); ?></a></p>
+							<p class="message_invite"><?php echo __('For every friend who you invite to ').APPNAME_FRIENDLY.__(' , we will give you 1 of bonus credits each credit is worth one month (8 invites and you will never pay for your android app )! 
+If you need unlimited  straight away, '); ?><a href="admin.php?page=WordAppPN"><? echo __('upgrade your account.'); ?></a></p>
 							
 							<center>
 								<h2>Invite your friends via email</h2>
@@ -34,7 +34,7 @@ If you need unlimited downloads straight away, '); ?><a href="admin.php?page=Wor
 							<input class="button-primary" type="button" name="send" id="inviteFriends" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Send">
 							<hr>
 								<h3>More ways to invite your friends</h3>
-							<input value="<?php echo json_decode(file_get_contents("http://api.bit.ly/v3/shorten?login=o_3amaqc6ksq&apiKey=R_eb6284fde1344772a6fbd8f944e594e8&longUrl=".urlencode("http://mobile-rockstar.com/r/").urlencode(str_replace('http://','',get_site_url()))."&format=json"))->data->url; ?>" style="width: 300px;text-align: center;height: 42px;font-size: 21px;">
+							<input value="<?php echo json_decode(wp_remote_retrieve_body(wp_remote_get("http://api.bit.ly/v3/shorten?login=o_3amaqc6ksq&apiKey=R_eb6284fde1344772a6fbd8f944e594e8&longUrl=".urlencode("http://mobile-rockstar.com/r/").urlencode(str_replace('http://','',get_site_url()))."&format=json")))->data->url; ?>" style="width: 300px;text-align: center;height: 42px;font-size: 21px;">
 							</center>
 						</div>
 						<!-- .inside -->

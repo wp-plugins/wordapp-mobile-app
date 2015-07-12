@@ -56,10 +56,10 @@ jQuery(document).ready(function($){
 	
 	
 	 $('#previewApp').click(function() {
-        tb_show('Preview you app in  web browser', 'http://mobile-rockstar.com/app/demo.php?url=' + $( "#previewApp" ).data( "webid" ) + '&TB_iframe=true', false);
-       i = "preview";
+        tb_show('Preview you app in mobile web browser', '#TB_inline?inlineId=myPreview&height=400&width=400&modal=false');
+        i = "preview";
 		 // #TB_window width: 440px;
-		// $("#TB_window").width('440px');
+		 $("#TB_window").width('440px');
         return false;
     });
 
@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
     		$("#sideInfo").show();
 	});
 	$('#pushNoteSend').click(function(){
-    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val();
+    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val()+ '&email=' +  $('#email').val();
 	});
 	
 	$('#goCommunity').click(function(){
@@ -225,10 +225,9 @@ jQuery(document).ready(function($){
 						 }
   					},
   			error: function() {
-   					 alert("Your message was sent to our developers! Depending on the number of publish request, publishing may take up to 48 hours!\n\n\n  Please don't forget to support our team with our crowdfunding efforts :)");
+  			 alert("Your message was sent to our developers! Depending on the number of publish request, publishing may take up to 48 hours!\n\n\n  Please don't forget to support our team with our crowdfunding efforts :)");
 							 window.location.href = 'admin.php?page=WordAppCrowd';
-							 
-							  }
+ 					 }
 				});
            
 	 });//End Send Publication

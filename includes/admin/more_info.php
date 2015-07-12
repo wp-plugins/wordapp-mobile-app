@@ -4,7 +4,7 @@
 <ul>
 	<li><a href="admin.php?page=WordAppCrowd"><font color="red">*** We need your help! *** </font></a></li>
 
-<li><a href="admin.php?page=WordAppMoreDownloads">Get unlimited downloads for free!</a></li>
+<li><a href="admin.php?page=WordAppMoreDownloads">Get app for free!</a></li>
 
 </ul>
 

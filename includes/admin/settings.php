@@ -23,6 +23,15 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
     		$varGA = (array)get_option( 'WordApp_ga' );
  			settings_fields( 'WordApp_main_ga' );
   	?>
+				<h3>Activate mobile site</h3>
+								
+	<hr>					
+								  <p>
+      
+			 <?php echo __('Do you want to use this as your mobile wesite too ?' ); ?><br />
+       <label for="WordApp_GA[mobilesite]"><?php echo __('Mobile Site ? ' ); ?></label> <input type="radio" name="WordApp_ga[mobilesite]" id="mobilesiteOff" value="" <?php echo ($varGA['mobilesite'] == '' ? 'checked' : '')?>><?php echo __('off'); ?> 
+		<input type="radio" name="WordApp_ga[mobilesite]" id="mobilesiteOn" value="on" <?php echo ($varGA['mobilesite'] == 'on' ? 'checked' : '')?>><?php echo __('on'); ?>
+         </p>
 	<h3>Google Analytics</h3>
 								
 	<hr>	
@@ -39,6 +48,16 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 	<p>  	<label for="WordApp_GA[apiKey]"><?php echo __('API Key' ); ?></label>
  	<input type="text" id="WordAppGA_apiKey" name="WordApp_ga[apiKey]"  value="<?php echo $varGA['apiKey']; ?>"/></p>
 	
+	<h3>Emails & Newsletter</h3>
+								
+	<hr>					
+								  <p>
+      
+			 <?php echo __('Do you want to be informed about latest security updates & news from WordApps ?' ); ?><br />
+       <label for="WordApp_GA[email]"><?php echo __('Newsletter ? ' ); ?></label> <input type="radio" name="WordApp_ga[email]" id="emailOff" value="off" <?php echo ($varGA['email'] == 'off' ? 'checked' : '')?>><?php echo __('off'); ?> 
+		<input type="radio" name="WordApp_ga[email]" id="emailOn" value="" <?php echo ($varGA['email'] == '' ? 'checked' : '')?>><?php echo __('on'); ?>
+         </p>						
+								
 	<?php submit_button(); ?>
    
 						</div>
