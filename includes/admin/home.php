@@ -634,7 +634,7 @@ else if($active_tab == "step4"){
 				
 				<div class="ios-device ios-device--large ios-device--black iphone-6--large" style="width: 100%;
   height: 620px">
-					<div class="ios-device__screen" ><iframe width="100%" height="100%" src="http://52.27.101.150/dev/wordpress/?WordApp_demo=1"></iframe></div>
+					<div class="ios-device__screen" ><iframe width="100%" height="100%" src="<?php bloginfo('wpurl'); ?>/?WordApp_demo=1"></iframe></div>
 </div>
 				<hr><center> <input type="button" class="button button-primary" value="Preview app in mobile browser" id="previewApp" > </center>
 				</div>
