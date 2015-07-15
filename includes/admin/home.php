@@ -616,7 +616,7 @@ else if($active_tab == "step4"){
 			<!-- post-body-content -->
 
 			<!-- sidebar -->
-			<div id="postbox-container-1" class="postbox-container" style="width: 47%;">
+			<div id="postbox-container-1" class="postbox-container" style="width: 47%;max-width:400px;">
 
 				<div class="meta-box-sortables">
 
@@ -632,7 +632,7 @@ else if($active_tab == "step4"){
          	<div id="preview">
 					
 				
-				<div class="ios-device ios-device--large ios-device--black iphone-6--large" style="width: 100%;
+				<div class="ios-device ios-device--large ios-device--black iphone-6--large" style="max-width:350px;width: 100%;
   height: 620px">
 					<div class="ios-device__screen" ><iframe width="100%" height="100%" src="<?php bloginfo('wpurl'); ?>/?WordApp_demo=1"></iframe></div>
 </div>
