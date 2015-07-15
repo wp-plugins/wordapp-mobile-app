@@ -12,8 +12,7 @@ foreach ($widgets as $widget => $widget_val) {
 		echo '<div id="sidebar-'.$widget.'" class="sidebar">';
 	if (dynamic_sidebar($widget)) { } else {
 	echo '<div class="pre-widget">
-		<p><strong>Widgetized '.$widget.'</strong></p>
-		<p>This panel is active and ready for you to add some widgets via the WP Admin</p>
+		
 	</div>';
 	}
 		echo "</div>";
