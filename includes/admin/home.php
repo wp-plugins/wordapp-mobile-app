@@ -625,7 +625,9 @@ else if($active_tab == "step4"){
 						<h3><span><?php echo __(
 									'Preview my app'
 								); ?></span></h3>
-
+<small><?php echo __(
+									'Clicking deactivated in demo'
+								); ?></small>
 						<div class="inside"> 
 							
 							
