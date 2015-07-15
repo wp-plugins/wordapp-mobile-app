@@ -11,7 +11,7 @@ if ( !current_user_can( 'manage_options' ) )  {
 ?>
 <div class="wrap">
    
-   <div class="wordAppheader"><a href="<?php echo MAINURL; ?>" class="wordApplogo"><img  style="  width: 100%;" src="<?php echo plugin_dir_url(  ).APPNAME.'/images/logo.png'; ?>"></a> <div class="wordAppsubscribe">
+   <div class="wordAppheader"><a href="<?php echo MAINURL; ?>" class="wordApplogo"><img  style="  width: 100%;max-width:250px" src="<?php echo plugin_dir_url(  ).APPNAME.'/images/logo.png'; ?>"></a> <div class="wordAppsubscribe">
 	 <h3  style="margin:0px">Subscribe to our newsletter</h3>
 	   <form method="post" target="_blank" action="http://app-developers.fr/lists/?p=subscribe&id=3" name="subscribeform">
 	   <table border=0>
