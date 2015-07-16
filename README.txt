@@ -29,7 +29,8 @@ Some of the new features
 * Themes & customize
 * Mobile site included
 
-
+*GET YOUR MOBILE APP FOR FREE**
+Invite 8 friends and we will publish your app for free!
 
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
 
