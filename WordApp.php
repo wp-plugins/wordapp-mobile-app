@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for Free
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:1.0.1
+  Version:1.0.2
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
