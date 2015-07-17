@@ -100,11 +100,11 @@ function WordApp_mobile_detect(){
 	
 	
   if($_GET['WordApp_demo'] == '1' || ($_COOKIE['WordApp_mobile_site'] == 'mobile' &&  $varGA['mobilesite'] == "on") || $_COOKIE['WordApp_mobile_app'] == true)  {
-		add_filter( 'theme_root',array( $this, 'WordApp_change_theme_root' ) );
-		add_filter( 'stylesheet_directory_uri', array( $this, 'WordApp_change_theme_root_css_uri' ) );
-		add_filter( 'template_directory_uri', array( $this, 'WordApp_change_theme_root_uri' ) );
-		add_filter( 'template', array( $this, 'WordApp_fxn_change_theme' ) );
-		add_filter( 'stylesheet', array( $this, 'WordApp_fxn_change_theme' ) );
+		add_filter( 'theme_root',array( $this, 'WordApp_change_theme_root' ), 99 );
+		add_filter( 'stylesheet_directory_uri', array( $this, 'WordApp_change_theme_root_css_uri' ), 99 );
+		add_filter( 'template_directory_uri', array( $this, 'WordApp_change_theme_root_uri' ), 99 );
+		add_filter( 'template', array( $this, 'WordApp_fxn_change_theme' ), 99 );
+		add_filter( 'stylesheet', array( $this, 'WordApp_fxn_change_theme' ), 99 );
 		  show_admin_bar(false);
 	  }	
   }
