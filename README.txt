@@ -14,22 +14,36 @@ WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website in t
 == Description ==
 WordApp | **Mobile App** iPhone & Android Native app & **Mobile site** in one
 
-**Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
-
 WordApp is a wordpress plugin that converts your blog/website in to a mobile app & mobile website. Built by a community of mobile app geeks we are really proud to offer the very first mobile app building plugin for wordpress.
 
-Native apps can be uploaded to **Google Play** and the **iPhone AppStore** The mobile website is supported on iPhones, Android smartphones, Windows Phone 8, Firefox OS. **Compatible browsers**: Safari, Google Chrome, Android - Native Browser, Internet Explorer 10 and Firefox.
+**Create your own Native iPhone & Android Apps**
+
+Some of the mobile app builder features :
+
+* Publish your mobile app to Google Play Store & Apple App Store.
+* Send push notifications when you want to update your users
+* Mobile web app for mobile browsers
+* Customise the menus & widgets for mobile only users
+* Monetize you mobile app with Adsense ads.
+* Edit the CSS to create your own mobile theme.
+* Compatible with BuddyPress.
+
+Native apps can be uploaded to **Google Play** and the **iPhone App Store** The mobile website is supported on iPhones, Android smartphones, Windows Phone 8, Firefox OS. **Compatible browsers**: Safari, Google Chrome, Android - Native Browser, Internet Explorer 10 and Firefox.
 
 **NEW!** You can now build mobile apps for social network (using BuddyPress), Forum (using bbPress), Dating App, and much more. Thanks to the power behind wordpress you can install all the plugins on your mobile app too.
 
-Some of the new features
-* Native apps
-* Add all plugins
-* Push notifications
-* Themes & customize
-* Mobile site included
+Some of the more features & other services we offer :
+* Creation of Native mobile apps 
+* Integration with all plugins
+* Geo Targeted Push notifications
+* Mobile Themes customisation 
+* Mobile site design
+
+
+**Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
 
 **GET YOUR MOBILE APP FOR FREE**
+
 Invite 8 friends and we will publish your app for free!
 
 
