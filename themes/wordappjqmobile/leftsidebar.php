@@ -27,9 +27,7 @@ echo $menu_list;
 }
 	?>
 	<div  class="widget-area" role="complementary">	<?php
-	if ( ! is_active_sidebar( 'wordapp-mobile-sidebar-left' ) ) {
-	return;
-}
+	
  dynamic_sidebar( 'wordapp-mobile-sidebar-left' ); 
 			?>
 </div>

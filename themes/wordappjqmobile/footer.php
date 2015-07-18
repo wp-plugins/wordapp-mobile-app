@@ -9,9 +9,7 @@
 
 ?>
 <div  class="widget-area" role="complementary">	<?php
-	if ( ! is_active_sidebar( 'wordapp-mobile-sidebar-footer' ) ) {
-	return;
-}
+	
  dynamic_sidebar( 'wordapp-mobile-sidebar-footer' ); 
 			?>
 </div>
