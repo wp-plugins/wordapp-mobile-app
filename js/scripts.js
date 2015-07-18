@@ -2,7 +2,7 @@
 jQuery(document).ready(function($){
     // Add Color Picker 
     $( '.cpa-color-picker' ).wpColorPicker();  
-   
+    var i = "";
    
    // Add UPLOAD LOGO
     $('#upload_logo_button').click(function() {
@@ -122,7 +122,7 @@ jQuery(document).ready(function($){
  			var image_url = $('img',html).attr('src');
  			// alert(image_url);
  			
- 			if(i === "logo"){ 
+ 			if(i == "logo"){ 
  			$('#logo_url').attr('src',image_url);
  			 $('#CityAppColor_logo').val(image_url);
  			 }
