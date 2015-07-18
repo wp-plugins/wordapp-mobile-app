@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for Free
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:1.0.3
+  Version:1.0.4
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -44,7 +44,7 @@ static private $class = null;
 		add_action( 'admin_menu',  array($this, 'register_WordApp_menu') );
 		add_action( 'admin_init',  array($this, 'WordAppSettingValues') );
 		add_action('init', array($this, 'WordApp_produce_my_json'));
-	  	
+	  	add_action('init', array($this, 'WordApp_register_widget'));
 	  	add_action('plugins_loaded', array($this, 'WordApp_mobile_detect'));
 	  
 		 /*- WP REST API -*/
@@ -58,6 +58,51 @@ static private $class = null;
   {
    
   }
+  /* Registering the Widgets */
+  function WordApp_register_widget(){
+		
+		register_sidebar( array(
+'name' => 'Mobile Sidebar Header',
+'id' => 'wordapp-mobile-sidebar-header',
+'description' => 'Mobile app and site side bar header below slideshow above content',
+'before_widget' => '<section id="%1$s" class="widget %2$s">',
+'after_widget' => '</section>',
+'before_title' => '<h3 class="wordappTitleHeader widget-title">',
+'after_title' => '</h3>',
+) );
+		register_sidebar( array(
+'name' => 'Mobile Sidebar Right',
+'id' => 'wordapp-mobile-sidebar-right',
+'description' => 'Mobile app and site side bar',
+'before_widget' => '<section id="%1$s" class="widget %2$s">',
+'after_widget' => '</section>',
+'before_title' => '<h3 class="wordappTitle widget-title">',
+'after_title' => '</h3>',
+) );
+
+register_sidebar( array(
+'name' => 'Mobile Sidebar Left',
+'id' => 'wordapp-mobile-sidebar-left',
+'description' => 'Mobile app and site side bar left below navigation',
+'before_widget' => '<section id="%1$s" class="widget %2$s">',
+'after_widget' => '</section>',
+'before_title' => '<h3 class="wordappTitleLeft widget-title">',
+'after_title' => '</h3>',
+) );
+
+
+
+register_sidebar( array(
+'name' => 'Mobile Sidebar Footer',
+'id' => 'wordapp-mobile-sidebar-footer',
+'description' => 'Mobile app and site side bar footer below content',
+'before_widget' => '<section id="%1$s" class="widget %2$s">',
+'after_widget' => '</section>',
+'before_title' => '<h3 class="wordappTitleFooter widget-title">',
+'after_title' => '</h3>',
+) );
+	
+}
 function WordApp_mobile_detect(){
 	  /*-- Theme switch for mobile sites --*/
 	

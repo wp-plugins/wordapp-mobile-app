@@ -5,7 +5,7 @@ Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, 
 
 Requires at least: 2.7
 Tested up to: 4.2.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,7 +159,9 @@ Huge changes have been made to the structure of the app builder.
 * Image upload fixed
 = Version 1.0.3 =
 * Better widgets now you can define the widgets used in the widgets section of wordpress
-
+= Version 1.0.4 =
+* 1.0.3 didn’t upload correctly
+* Better widgets now you can define the widgets used in the widgets section of wordpress
 
 == Upgrade notice ==
 
