@@ -26,7 +26,14 @@ if($varMenu['side'] == "on"){
 echo $menu_list;
 }
 	?>
+	<div  class="widget-area" role="complementary">	<?php
+	if ( ! is_active_sidebar( 'wordapp-mobile-sidebar-left' ) ) {
+	return;
+}
+ dynamic_sidebar( 'wordapp-mobile-sidebar-left' ); 
+			?>
+</div>
 	<hr>
-	<center><a href="http://mobile-rockstar.com" target="_blank" class="poweredBy">Made with <img class="emoji" draggable="false" alt="❤" src="http://s.w.org/images/core/emoji/72x72/2764.png"> using WordApp for wordpress</a>
+	<center><a href="http://mobile-rockstar.com/wordapp/" target="_blank" class="poweredBy">WordApp convert wordpress to app</a>
 	</center>
 </div>
