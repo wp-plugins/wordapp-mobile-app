@@ -157,6 +157,9 @@ Huge changes have been made to the structure of the app builder.
 * Fixing bug showing the wordapp instead of client server  
 = Version 1.0.2 =
 * Image upload fixed
+= Version 1.0.3 =
+* Better widgets now you can define the widgets used in the widgets section of wordpress
+
 
 == Upgrade notice ==
 

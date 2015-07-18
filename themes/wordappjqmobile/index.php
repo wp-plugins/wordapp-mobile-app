@@ -54,7 +54,13 @@ get_header(); ?>
 		  }
 ?>
 		  
-
+<div  class="widget-area" role="complementary">	<?php
+	if ( ! is_active_sidebar( 'wordapp-mobile-sidebar-header' ) ) {
+	return;
+}
+ dynamic_sidebar( 'wordapp-mobile-sidebar-header' ); 
+			?>
+</div>
 	
 	<?php 
 
