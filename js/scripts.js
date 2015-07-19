@@ -101,9 +101,11 @@ jQuery(document).ready(function($){
     		$("#sideInfo").show();
 	});
 	$('#pushNoteSend').click(function(){
-    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val()+ '&email=' +  $('#email').val();
+    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val()+ '&email=' +  $('#email').val()+ '&download=' +  $('#download').val();
 	});
-	
+	$('#goToWordApp').click(function(){
+    		window.location.href = 'admin.php?page=WordAppBuilder';
+	});
 	$('#goCommunity').click(function(){
     		window.location.href = 'http://community.mobile-rockstar.com/?user=' + $('#user').val();
 	});

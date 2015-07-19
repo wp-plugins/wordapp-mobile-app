@@ -47,7 +47,7 @@
 
 <body <?php body_class(); ?>>
 	<div data-role="page" id="jqm-home"<?php jqmobileWordApp('body');?>>
-		<div data-role="header"<?php jqmobileWordApp('header');?>  data-position="fixed" data-tap-toggle="false" style="z-index: 99999999999999999;">
+		<div data-role="header"<?php jqmobileWordApp('header');?>  data-position="fixed" data-tap-toggle="false">
 		<?php 
 			if($varMenu['side'] == "on"){ 
 		?>

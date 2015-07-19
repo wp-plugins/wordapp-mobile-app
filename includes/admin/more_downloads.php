@@ -18,10 +18,10 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 
 						<div class="inside">
 							<h2 style="text-align: center;">
-							<?php echo __('Get your free android app with ').APPNAME_FRIENDLY.__('!'); ?>	
+							<?php echo __('Get your second month for free with ').APPNAME_FRIENDLY.__('!'); ?>	
 							</h2>	
-							<p class="message_invite"><?php echo __('For every friend who you invite to ').APPNAME_FRIENDLY.__(' , we will give you 1 of bonus credits each credit is worth one month (8 invites and you will never pay for your android app )! 
-If you need unlimited  straight away, '); ?><a href="admin.php?page=WordAppPN"><? echo __('upgrade your account.'); ?></a></p>
+							<p class="message_invite"><?php echo __('Invite 8 friends to  ').APPNAME_FRIENDLY.__(' , and get your second month for free!');
+echo '<br />'; echo __('If you need all features straight away, '); ?><a href="admin.php?page=WordAppPN"><? echo __('upgrade your account.'); ?></a></p>
 							
 							<center>
 								<h2>Invite your friends via email</h2>

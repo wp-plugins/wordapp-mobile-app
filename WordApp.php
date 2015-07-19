@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for Free
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:1.0.5
+  Version:1.1
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -12,9 +12,13 @@
 define('APPNAME', 'wordapp-mobile-app');
 define('APPNAME_FRIENDLY', 'WordApp');
 define('PLUGIN_URL', 'http://mobile-rockstar.com/app/main/app.php');
+define('VIMEO_VIDEO', 'WordApp');
 define('MAINURL', 'admin.php?page=WordApp');
 define('DEFAULT_WordApp_THEME', 'wordappjqmobile');
-
+require_once dirname( __FILE__ ) . '/includes/classes/widgets.php';
+require_once dirname( __FILE__ ) . '/includes/classes/create_json.php';
+$widgets = new WordAppClass_widgets;  // include the custom posts and meta boxes
+$createJson = new WordAppClass_json; 
 class WordAppClass
 {
 
@@ -25,7 +29,7 @@ static private $class = null;
   function __construct()
 	{
 		// actions
-	  
+	  global $widgets,$createJson;
  		$this->WordApp_mobile_detect();
 		$this->init();
 		add_action('init', array($this, 'init'), 1);
@@ -43,8 +47,8 @@ static private $class = null;
 		add_filter( 'json_prepare_post',  array($this, 'api_to_wordapp'), 10, 3 );
 		add_action( 'admin_menu',  array($this, 'register_WordApp_menu') );
 		add_action( 'admin_init',  array($this, 'WordAppSettingValues') );
-		add_action('init', array($this, 'WordApp_produce_my_json'));
-	  	add_action('init', array($this, 'WordApp_register_widget'));
+		add_action('init', array($createJson, 'WordApp_produce_my_json'));
+	  	add_action('init', array($widgets, 'WordApp_register_widget'));
 	  	add_action('plugins_loaded', array($this, 'WordApp_mobile_detect'));
 	  
 		 /*- WP REST API -*/
@@ -58,51 +62,7 @@ static private $class = null;
   {
    
   }
-  /* Registering the Widgets */
-  function WordApp_register_widget(){
-		
-		register_sidebar( array(
-'name' => 'Mobile Sidebar Header',
-'id' => 'wordapp-mobile-sidebar-header',
-'description' => 'Mobile app and site side bar header below slideshow above content',
-'before_widget' => '<section id="%1$s" class="widget %2$s">',
-'after_widget' => '</section>',
-'before_title' => '<h3 class="wordappTitleHeader widget-title">',
-'after_title' => '</h3>',
-) );
-		register_sidebar( array(
-'name' => 'Mobile Sidebar Right',
-'id' => 'wordapp-mobile-sidebar-right',
-'description' => 'Mobile app and site side bar',
-'before_widget' => '<section id="%1$s" class="widget %2$s">',
-'after_widget' => '</section>',
-'before_title' => '<h3 class="wordappTitle widget-title">',
-'after_title' => '</h3>',
-) );
 
-register_sidebar( array(
-'name' => 'Mobile Sidebar Left',
-'id' => 'wordapp-mobile-sidebar-left',
-'description' => 'Mobile app and site side bar left below navigation',
-'before_widget' => '<section id="%1$s" class="widget %2$s">',
-'after_widget' => '</section>',
-'before_title' => '<h3 class="wordappTitleLeft widget-title">',
-'after_title' => '</h3>',
-) );
-
-
-
-register_sidebar( array(
-'name' => 'Mobile Sidebar Footer',
-'id' => 'wordapp-mobile-sidebar-footer',
-'description' => 'Mobile app and site side bar footer below content',
-'before_widget' => '<section id="%1$s" class="widget %2$s">',
-'after_widget' => '</section>',
-'before_title' => '<h3 class="wordappTitleFooter widget-title">',
-'after_title' => '</h3>',
-) );
-	
-}
 function WordApp_mobile_detect(){
 	  /*-- Theme switch for mobile sites --*/
 	
@@ -220,80 +180,19 @@ function WordAppCrowd(){
 		
 		include plugin_dir_path( __FILE__ ).'includes/admin/the_crowd.php';
 }
+
 function WordAppPluginsAndThemes(){
 
-			include plugin_dir_path( __FILE__ ).'includes/admin/more_downloads.php';
+			include plugin_dir_path( __FILE__ ).'includes/admin/plugins.php';
+}
+function WordAppVideos(){
+
+			include plugin_dir_path( __FILE__ ).'includes/admin/videos.php';
 }
 
 
 /* ----  /Admin Pages ------ */
 
-/*--  JSON RETURN --*/
-function WordApp_produce_my_json() {
-  if (!empty($_GET['wp_apppp'])) {
-    $jsonpost = array();
-    	$jsonpost["id"] = "mobileApp";
-    	
-    	
-    	
-    	$varColor = (array)get_option( 'WordApp_options' );
-    	$varGA = (array)get_option( 'WordApp_ga' ); // Settings page
-     	$varMenu = (array)get_option( 'WordApp_menu' );
-     	$varStructure = (array)get_option( 'WordApp_structure' );
-	  	$varSlideshow = (array)get_option( 'WordApp_slideshow' );
-     
-    	$jsonpost["name"] = get_bloginfo('name');
-    	
-    	
-     	$jsonpost["title"] 		= $varColor['Title'];
-     	$jsonpost["color"]		= $varColor['Color'];
-      	$jsonpost["logo"] 		= $varColor['logo'];
-      	$jsonpost["style"] 		= $varColor['style'];
-        $jsonpost["page_id"]	= $varColor['page_id'];
-      	
-      	
-      	$jsonpost["menu"] 		= $varMenu['menu'];
-      	$jsonpost["menuTop"] 	= $varMenu['menuTop'];
-      	$jsonpost["menuBottom"] = $varMenu['menuBottom'];
-      	$jsonpost["bottom"] 	= $varMenu['bottom'];
-      	$jsonpost["side"] 		= $varMenu['side'];
-      	$jsonpost["top"] 		= $varMenu['top'];
-      	
-      	$jsonpost["google"] 	= $varGA['google'];
-      	
-	  	$jsonpost["slideActive"] 	= $varSlideshow['onoff'];
-	  	$jsonpost["slide"][0] 	= $varSlideshow['one'];
-	  	$jsonpost["slide"][1]	= $varSlideshow['two'];
-	  	$jsonpost["slide"][2]	= $varSlideshow['three'];
-	  	$jsonpost["slide"][3]	= $varSlideshow['four'];
-	  	$jsonpost["slide"][4]	= $varSlideshow['five'];
-	  
-	  	$jsonpost["icon"] = $varStructure['icon'];
-      	$jsonpost["splash"] 	= $varStructure['splash'];
-      	$jsonpost["description"] 		= $varStructure['description'];
-      	$jsonpost["cat"] 		= $varStructure['cat'];
-	  	$jsonpost["keywords"] 		= $varStructure['keywords'];
-      
-      //$menuItems = wp_get_nav_menu_items($varMenu['bottom']);
-     $menuItems =   wp_get_nav_menu_items(  $varMenu['menuBottom'] );
-
-      
-      $jsonpost["bottomIconCount"] =   count($menuItems);
-      
-      //print_r($menuItems);
-        for ($i = 0; $i < count($menuItems); ++$i) {
-       $jsonpost["bottomIcon"][$i]  = $varMenu['bottomIcon'][$i];
-   		 }
-   		 
-   		 
-    $encoded=json_encode($jsonpost);
-    header( 'Content-Type: application/json' );
-    echo $encoded;
-    exit;
-  }
-}
-
-/*--  /JSON RETURN-- */
 
 
 /* -- Registering forms --*/
@@ -364,12 +263,13 @@ return $newinput;
 	
 	
 	add_submenu_page( $menu_slug, __('Push Notifications'), __('Push Notifications'), $capability, 'WordAppPN', array($this, 'WordAppPN') );
-	add_submenu_page( $menu_slug, __('Tell a friend'), __('Tell a friend'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
 	// add_submenu_page( $menu_slug, __('Stats'), __('Stats'), $capability, 'WordAppStats', array($this, 'WordAppStats') ); // USING GA until find a better solution
-	add_submenu_page( $menu_slug, __('Settings'), __('Settings'), $capability, 'WordAppSettings', array($this, 'WordAppSettings') );
-	//add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
+	add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	add_submenu_page( $menu_slug, __('The Crowd'), __('The Crowd'), $capability, 'WordAppCrowd', array($this, 'WordAppCrowd') );
-
+	add_submenu_page( $menu_slug, __('Tell a friend'), __('Tell a friend'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
+	add_submenu_page( $menu_slug, __('Video Tutorials'), __('Video Tutorials'), $capability, 'WordAppVideos', array($this, 'WordAppVideos') );
+	add_submenu_page( $menu_slug, __('Settings'), __('Settings'), $capability, 'WordAppSettings', array($this, 'WordAppSettings') );
+	
 	
 		
 		}

@@ -379,7 +379,7 @@ else if($active_tab == "step4"){
 <div style="width:100%;height:100%;height: 400px; float: none; clear: both; margin: 2px auto;">
   <embed src="<?php echo $activate->pubVideo; ?>?version=3&amp;hl=en_US&amp;rel=0&amp;autohide=1&amp;autoplay=0" wmode="transparent" type="application/x-shockwave-flash" width="100%" height="400px" allowfullscreen="true" title="Adobe Flash Player">
 </div>							
-<h2><?php echo __('We will send your your app to android for free (launch offer limited to our first 1000 users)!');?></h2>
+<h2><?php echo __('Get your first month for free !');?></h2>
 
 
 
@@ -536,7 +536,7 @@ else if($active_tab == "step4"){
 								
 								<input type="hidden" name="user" id="user" placeholder="Your Name" value="<?php echo get_bloginfo('name') ?>">
 							
-			
+		<?php /*	
 								
 <table class="widefat" width="30%" style="  width: 36%;">
 	<thead>
@@ -576,23 +576,40 @@ else if($active_tab == "step4"){
 		<th class="row-title" style="color:green"><center><?php echo __( 'Only $9.99 USD per month' ); ?></center></th>
 	
 	</tr>
+		<tr>
+		<th class="row-title" style="color:green"><center><?php echo __( 'First Month on android for free!' ); ?></center></th>
+	
+	</tr>
 	</tfoot>
 </table>
-								<input type="hidden" name="user" id="user"  value="<?php echo get_bloginfo('url') ?>">
-							<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish my app!">
-							
+				*/ 
+if($activate->download =='UNLIMITED'){
+				echo '<h3 style="color:red;background-color:yellow;">Publish your app for free, <del>one month</del> two months for free</h3>
+Your <del>first month</del> two months for free (Android App + Web App)!<br />';
+		echo'	<input type="hidden" name="download" id="download"  value="2">';
+		}else{
+			echo '<h3 style="color:red;background-color:yellow;">Publish your app for free, one month for free</h3>
+Your first month for free (Android App + Web App)!<br />';
+			echo'	<input type="hidden" name="download" id="download"  value="1">';
+		}
+?>				<input type="hidden" name="user" id="user"  value="<?php echo get_bloginfo('url') ?>">
+<hr>
 
+<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish my app!">
+							
 <?php 
-			if($activate->download =='UNLIMITED') { 
-			echo '<hr> You have enough credits to get your app on android for free ! <br /><input value="Use my credits" id="submitPub"  type="button" class="button button-primary" name="publish">'; 
-	   
+			if($activate->download =='0') { 
+			// echo '<hr> Your first month for free (Android App + Web App)! <br /><input value="Use my credits" id="submitPub"  type="button" class="button button-primary" name="publish">'; 
+	   echo '<h4><a href="admin.php?page=WordAppMoreDownloads">Get a second month for free!</a></h4>';
 											}
+		
 			
-			/* <input value="Publish my app!" id="submitPub"  type="button" class="button button-primary" name="publish"> */ ?>
+			/* <input value="Publish my app!" id="submitPub"  type="button" class="button button-primary" name="publish"> */
+?><h4>Note: During the free priod your iOS app will <i>not</i> be published.</h4>
 	   <?php
 	}
 			
-		}
+		} // END Step 4
         ?></center>
 <?php if($active_tab == "step4"){
 			
@@ -625,9 +642,9 @@ else if($active_tab == "step4"){
 						<h3><span><?php echo __(
 									'Preview my app'
 								); ?></span></h3>
-<small><?php echo __(
+<center><small><?php echo __(
 									'Clicking deactivated in demo'
-								); ?></small>
+								); ?></small></center>
 						<div class="inside"> 
 							
 							

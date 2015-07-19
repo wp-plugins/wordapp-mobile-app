@@ -31,7 +31,10 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								<td style="width:33%"><img src="<?php echo plugins_url(APPNAME.'/images/heart.png'); ?>"><h3><?php echo __('Our Community');?></h3><?php echo __('We started as a bunch of geek and now we have an amazing mobile rockstars community.');?></td>
 							</tr>
 							</table>
-							<h1>Invite your friends and get your app for FREE!</h1>
+							<h1>Invite your friends and get more months for FREE!</h1>
+									
+<input class="button-primary" type="button" name="send"  id="goToWordApp" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Get started now!">
+		
 							</center>
 						</div>
 						<!-- .inside -->
@@ -65,6 +68,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								<li><a href="https://wordpress.org/plugins/wordapp-mobile-app/changelog/"><?php echo APPNAME_FRIENDLY ?> <?php echo __('Changelog') ?> </a></li>
 							</ul>
 							</p>
+				
 						</div>
 					
 						<!-- .inside -->
@@ -80,7 +84,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 						<div class="inside">
 							<div style="height:400px; overflow:scroll;">
 							<?php
-	$json = file_get_contents('http://mobile-rockstar.com/?json_route=/posts');
+	$json = wp_remote_retrieve_body(wp_remote_get('http://mobile-rockstar.com/?json_route=/posts'));
 	$pageList = json_decode($json,true);
  	//$pageItems =  $pageList['items']; 
  

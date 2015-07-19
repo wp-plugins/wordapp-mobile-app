@@ -99,9 +99,9 @@ $activate = json_decode(wp_remote_retrieve_body(wp_remote_get("http://mobile-roc
 			   update_option( 'wordapp_firstVisit', '1' );
 		   }
 		   ?>		   
-		   <font color="red">You have <?php echo $activate->download; ?> free credits</font>
+		   <font color="red">You have <?php  if($activate->download == "UNLIMITED"){ echo '1'; }else{ echo '0'; } ?> free credits</font>
 		   <br />
-		   <a href="admin.php?page=WordAppMoreDownloads">Get more free downloads</a>
+		   <a href="admin.php?page=WordAppMoreDownloads"><?php echo __('Get your app for free'); ?></a>
 		
 	   
 	   </div>
