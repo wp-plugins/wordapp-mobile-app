@@ -75,10 +75,21 @@ jQuery(document).ready(function($){
   	//Hide show page list	
   	$('#listStyle').click(function(){
     		$("#pageInfo").hide();
+			$("#pageInfoList").show();
+			$("#pageInfoTiles").hide();
+		
 	});
 	$('#pageStyle').click(function(){
     		$("#pageInfo").show();
+			$("#pageInfoList").hide();
+			$("#pageInfoTiles").hide();
 	});
+	$('#tilesStyle').click(function(){
+    		$("#pageInfo").hide();
+			$("#pageInfoList").hide();
+			$("#pageInfoTiles").show();
+	});
+	
 	//Bottom Bar Hide Show
 	$('#bottomBarOff').click(function(){
     		$("#bottomInfo").hide();

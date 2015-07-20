@@ -1299,6 +1299,16 @@ width:100%;
 min-height: 158px;
   
 }
+.imgBox{
+width:100%;
+min-height: 158px;
+  
+}
+.imgBoxList{
+	width:200px;
+	height:200px;
+		
+}
 .txtBox{
   margin-bottom: 10px;
   text-align: left;

@@ -70,8 +70,44 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
         <label for="WordApp_options[style]"><?php echo __('App Style' ); ?></label>
        <div style="left: 100px;top: -70px;position: relative;">
 			<input type="radio" name="WordApp_options[style]" id="listStyle" value="list" <?php echo ($varColor['style'] == 'list' ? 'checked' : '')?>><?php echo __('List of posts'); ?><br>
-			<input type="radio" name="WordApp_options[style]" id="listStyle" value="tiles" <?php echo ($varColor['style'] == 'tiles' ? 'checked' : '')?>><?php echo __('Large Tiles'); ?><br>
-		    <input type="radio" name="WordApp_options[style]" id="pageStyle" value="page" <?php echo ($varColor['style'] == 'page' ? 'checked' : '')?>><?php echo __('A page'); ?>
+			
+			 <p id="pageInfoList" style="<?php echo ($varColor['style'] !== 'list' ? 'display:none' : '')?>">
+       				   <?php $args = array(
+											'depth'                 => 0,
+											'child_of'              => 0,
+											'selected'              => $varColor['list_page_id'],
+											'echo'                  => 1,
+											'name'                  => 'WordApp_options[list_page_id]',
+											'id'                    => null, // string
+											'show_option_none'      => __('Select a category'), // string
+											'show_option_no_change' => null, // string
+											'option_none_value'     => null, // string
+							
+								 ); 
+							wp_dropdown_categories( $args ); ?>
+		   </p>
+		   
+		   
+		   	<input type="radio" name="WordApp_options[style]" id="tilesStyle" value="tiles" <?php echo ($varColor['style'] == 'tiles' ? 'checked' : '')?>><?php echo __('Large Tiles'); ?><br>
+		   
+			 <p id="pageInfoTiles" style="<?php echo ($varColor['style'] !== 'tiles' ? 'display:none' : '')?>">
+       				   <?php $args = array(
+											'depth'                 => 0,
+											'child_of'              => 0,
+											'selected'              => $varColor['tiles_page_id'],
+											'echo'                  => 1,
+											'name'                  => 'WordApp_options[tiles_page_id]',
+											'id'                    => null, // string
+											'show_option_none'      => __('Select a category'), // string
+											'show_option_no_change' => null, // string
+											'option_none_value'     => null, // string
+							
+								 ); 
+							wp_dropdown_categories( $args ); ?>
+		   </p>
+		   
+		   
+		   	<input type="radio" name="WordApp_options[style]" id="pageStyle" value="page" <?php echo ($varColor['style'] == 'page' ? 'checked' : '')?>><?php echo __('A page'); ?>
        
         <p id="pageInfo" style="<?php echo ($varColor['style'] !== 'page' ? 'display:none' : '')?>">
         <?php 

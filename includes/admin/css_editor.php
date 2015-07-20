@@ -20,7 +20,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 
   
   <form method="post" action="options.php">
-  <h3>Add your own CSS to your app</h3>
+   <h3>Add your own CSS to your app</h3>
     <?php 
 
 $varCSS = (array)get_option( 'WordApp_css' );

@@ -70,75 +70,73 @@ $content = apply_filters('the_content', $post->post_content);
 echo $content; 
    } elseif($data['style'] == 'tiles'){
 	
+	$recent_posts = wp_get_recent_posts();
 	
-	 	
-	if (have_posts()): ?>
+	//print_r($recent_posts);
+	//exit;
+	foreach( $recent_posts as $recent ){
 		
-			<?php while (have_posts()) : the_post(); ?>
-				<div class="box" style="text-align: left;">
-					<a href="<?php the_permalink() ?>"  class="boxLink">
-						
-						
+		?>
+
+	<div class="box" style="text-align: left;">
+					<a href="<?php echo get_permalink($recent["ID"]) ?>"  class="boxLink">
 						<div class="boxImgDiv">
 							<?php 
-		$default_attr = array(
-	
-	'class' => "imgBox"
-);
-		the_post_thumbnail($default_attr,array(200, 200)) ?> 
-						
-						 <h2 class="boxH2"><span class="boxH2span"><?php the_title(); ?></span></h2></div>
-						
-					
-						<p><strong><?php the_author(); ?></strong></p>
-						  <p class="txtBox"><?php the_excerpt(); ?></p>
-						
-						<div class="boxFoot"><span class="time"><?php the_time('Y-m-d'); ?></span></div>
-						
-						
+		$default_attr = array('class' => "imgBox");
+		echo get_the_post_thumbnail($recent["ID"],'post-thumbnail', $default_attr) ?> 
+						 <h2 class="boxH2"><span class="boxH2span"><?php echo $recent["post_title"]; ?></span></h2></div>
+						<p><strong><?php echo get_the_author($recent["post_author"]); ?></strong></p>
+						<p class="txtBox"><?php echo get_the_excerpt($recent["ID"]); ?></p>
+						<div class="boxFoot"><span class="time"><?php echo $recent["post_date"]; ?></span></div>	
 					</a>
 				</div>
-			<?php endwhile; ?>
-
-
-		<?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
-	<?php else: ?>
-		<h2>Not Found</h2>
-	<?php endif;
+	<?php
+	
+	}
 }else{
 	
-	if (have_posts()): ?>
+	?>
+		<ul data-role="listview" data-inset="true">
+			
+	<?php
+	$recent_posts  = wp_get_recent_posts();
 	
-		<ul data-role="listview" data-inset="true"<?php jqmobileWordApp('post');?>>
-			<?php while (have_posts()) : the_post(); ?>
-				<li<?php if(is_sticky()) {jqmobileWordApp('sticky');} ?>>
-					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail(array(100, 100)) ?>
-						<p class="ui-li-aside"><?php the_time('Y-m-d'); ?></p>
-						<h3><?php the_title(); ?></h3>
-						<p><strong><?php the_author(); ?></strong></p>
-						<div><?php the_excerpt(); ?></div>
-						<?php if (comments_open()): ?>
-							<span class="ui-li-count"><?php comments_number('0', '1', '%' );?></span>
-						<?php endif; ?>
+	//print_r($recent_posts);
+	//exit;
+	foreach( $recent_posts as $recent ){
+		
+		?>
+				<li>
+					<a href="<?php echo get_permalink($recent["ID"]) ?>">
+						<?php 
+				$default_attr = array('class' => "imgBoxList");
+		echo get_the_post_thumbnail($recent["ID"],array('200','200'),$default_attr ) ?> 
+						<p class="ui-li-aside" style="display:none"><?php echo $recent["post_date"]; ?></p>
+						<h3><?php echo $recent["post_title"]; ?></h3>
+						<p><strong><?php echo get_the_excerpt($recent["ID"]); ?></strong></p>
+						<div style="display:none"><?php echo get_the_excerpt($recent["ID"]); ?></div>
+						
 					</a>
 				</li>
-			<?php endwhile; ?>
-		</ul>
-		<?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
-	<?php else: ?>
-		<h2>Not Found</h2>
-	<?php endif;
+			
+			<?php 
+				}
+			?>
+	</ul>
+	<?php 
+	
+	
+	
 }
 	?>
 	
 	
 	
+
+
 <hr>
 	<center><a href="http://mobile-rockstar.com/wordapp/" target="_blank" class="poweredBy">WordApp convert wordpress to mobile app</a>
 	</center>
-
-
 
 </div>
 <script>
