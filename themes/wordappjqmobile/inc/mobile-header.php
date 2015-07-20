@@ -1,9 +1,8 @@
 
 
-<!-- Start of second page: #two -->
-<div data-role="page" id="two" data-theme="a">
+<div data-role="page" id="" data-theme="">
 
-	<div data-role="header">
+	<div data-role="header"  data-position="fixed" >
 		<a href="#" data-icon="back"  data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 		<h1 role="heading"><?php
 		$data = (array)get_option( 'WordApp_options' );
