@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php  include dirname( __FILE__ ) . '/inc/mobile-header.php'; ?>
 <div class="without-search">
 	<div class="">
 	<?php if (have_posts()) : ?>
@@ -35,4 +35,4 @@
 	</div>
 
 </div>
-<?php get_footer(); ?>
+<?php  include dirname( __FILE__ ) . '/inc/mobile-footer.php'; ?>

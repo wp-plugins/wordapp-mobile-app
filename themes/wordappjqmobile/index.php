@@ -134,7 +134,9 @@ echo $content;
 	
 	
 	
-
+<hr>
+	<center><a href="http://mobile-rockstar.com/wordapp/" target="_blank" class="poweredBy">WordApp convert wordpress to mobile app</a>
+	</center>
 
 
 

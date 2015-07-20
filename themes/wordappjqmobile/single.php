@@ -1,12 +1,5 @@
-<?php
-/**
- * The template for displaying all single posts.
- *
- * @package WordAppjqmobile
- */
-
-get_header(); ?>
-
+<?php  include dirname( __FILE__ ) . '/inc/mobile-header.php'; ?>
+		
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -28,4 +21,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_footer(); ?>
+	</div>
+</div>
+
+<?php  include dirname( __FILE__ ) . '/inc/mobile-footer.php'; ?>

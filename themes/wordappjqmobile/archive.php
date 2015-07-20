@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php  include dirname( __FILE__ ) . '/inc/mobile-header.php'; ?>
 	<div class="right">
 		<?php if (have_posts()) : ?>
  			<?php $post = $posts[0]; ?>
@@ -22,5 +22,4 @@
 		<h2>Nothing found</h2>
 		<?php endif; ?>
 	</div>
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php  include dirname( __FILE__ ) . '/inc/mobile-footer.php'; ?>

@@ -20,6 +20,8 @@
 <?php
 $varMenu = (array)get_option( 'WordApp_menu' );
 
+$varCss = (array)get_option( 'WordApp_css' );
+
   if($varMenu['menuBottom'] !== "" && $varMenu['bottom'] == "on" ) {
  echo '<div data-role="footer" data-position="fixed"  data-tap-toggle="false"><div data-role="navbar" data-iconpos="top"><ul>';
 	
@@ -102,6 +104,8 @@ $data = (array)get_option( 'WordApp_options' );
   overflow-x: hidden;
   padding: 0.3em;
 }
+<?php echo $varCss['css'];?>	
+	
 </style>
 <?php
 if($_GET['WordApp_demo'] == '1' && $_GET['WordApp_demo_dave'] !== "1"){

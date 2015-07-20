@@ -31,7 +31,5 @@ echo $menu_list;
  dynamic_sidebar( 'wordapp-mobile-sidebar-left' ); 
 			?>
 </div>
-	<hr>
-	<center><a href="http://mobile-rockstar.com/wordapp/" target="_blank" class="poweredBy">WordApp convert wordpress to app</a>
-	</center>
+	
 </div>

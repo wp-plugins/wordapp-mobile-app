@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for Free
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:1.1
+  Version:1.1.1
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -189,7 +189,10 @@ function WordAppVideos(){
 
 			include plugin_dir_path( __FILE__ ).'includes/admin/videos.php';
 }
-
+function WordAppCss(){
+ 
+			include plugin_dir_path( __FILE__ ).'includes/admin/css_editor.php';
+}
 
 /* ----  /Admin Pages ------ */
 
@@ -221,6 +224,13 @@ register_setting( 'WordApp_main_structure', 'WordApp_structure' );
 add_settings_section('WordApp_main_slideshow', 'Main Settings', 'plugin_section_text', 'WordApp');
 add_settings_field('WordAppSlideshow', 'Theme Toolbar Color', 'WordAppColor_display','WordApp', 'WordApp_main_slideshow');
 register_setting( 'WordApp_main_slideshow', 'WordApp_slideshow' );
+
+	
+	
+add_settings_section('WordApp_main_css', 'Main Settings', 'plugin_section_text', 'WordApp');
+add_settings_field('WordAppCss', 'Theme Toolbar Color', 'WordAppColor_display','WordApp', 'WordApp_main_css');
+register_setting( 'WordApp_main_css', 'WordApp_css' );
+
 
 
 		
@@ -258,12 +268,11 @@ return $newinput;
 	
 	add_menu_page( __('Getting Started'), $menu_title, $capability, $menu_slug, array($this, $function), plugins_url( APPNAME.'/images/app20x20.png' ), 66 ); 
 	
-	add_submenu_page( $menu_slug, __('App Builder'), __('App Builder'), $capability, 'WordAppBuilder', array($this, 'WordAppBuilder') );
-	
-	
-	
+	add_submenu_page( $menu_slug, __('App Builder'), __('App Builder'), $capability, 'WordAppBuilder', array($this, 'WordAppBuilder') );	
 	add_submenu_page( $menu_slug, __('Push Notifications'), __('Push Notifications'), $capability, 'WordAppPN', array($this, 'WordAppPN') );
 	// add_submenu_page( $menu_slug, __('Stats'), __('Stats'), $capability, 'WordAppStats', array($this, 'WordAppStats') ); // USING GA until find a better solution
+	add_submenu_page( $menu_slug, __('CSS Editor'), __('CSS Editor'), $capability, 'WordAppCss', array($this, 'WordAppCss') );
+	
 	add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	add_submenu_page( $menu_slug, __('The Crowd'), __('The Crowd'), $capability, 'WordAppCrowd', array($this, 'WordAppCrowd') );
 	add_submenu_page( $menu_slug, __('Tell a friend'), __('Tell a friend'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
@@ -303,7 +312,22 @@ return $newinput;
 /* -- Color Picker --*/
 function WordApp_add_color_picker( $hook ) {
 // Make sure to add the wp-color-picker dependecy to js file
-    wp_enqueue_script( 'cpa_custom_js', plugins_url( 'js/scripts.js?'.date('YmdHsi').'', __FILE__ ), array( 'jquery', 'wp-color-picker','media-upload','thickbox' ), '', true  );
+    
+	
+    wp_register_script('wordapp_codemirror', plugins_url('codemirror/lib/codemirror.js', __FILE__ ));
+    wp_register_style('wordapp_codemirror', plugins_url('codemirror/lib/codemirror.css', __FILE__ ));
+ 
+    wp_register_style('wordapp_cm_blackboard', plugins_url('codemirror/theme/blackboard.css', __FILE__ ));
+ 
+    wp_register_script('wordapp_cm_css', plugins_url('codemirror/css/css.js', __FILE__ ));
+ 
+	wp_enqueue_script('wordapp_codemirror');
+    wp_enqueue_style('wordapp_codemirror');
+ 
+    wp_enqueue_style('wordapp_cm_blackboard');
+ 
+    wp_enqueue_script('wordapp_cm_css');
+	wp_enqueue_script( 'cpa_custom_js', plugins_url( 'js/scripts.js?'.date('YmdHsi').'', __FILE__ ), array( 'jquery', 'wp-color-picker','media-upload','thickbox' ), '', true  );
  	wp_enqueue_script( 'wordapp_custom_js',  plugins_url( 'js/jquery.simplyCountable.js', __FILE__ ), array( 'jquery' ), '', true  );
 	wp_enqueue_script( 'wordapp_custom_js',  plugins_url( 'js/jquery.simplyCountable.js', __FILE__ ), array( 'jquery' ), '', true  );
 	
