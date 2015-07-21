@@ -10,9 +10,9 @@ class WordAppClass_widgets  {
   function WordApp_register_widget(){
 		
 			register_sidebar( array(
-									'name' => 'Mobile Sidebar Header',
+									'name' => 'Mobile Header',
 									'id' => 'wordapp-mobile-sidebar-header',
-									'description' => 'Mobile app and site side bar header below slideshow above content',
+									'description' => 'Mobile app and site  header below slideshow above content',
 									'before_widget' => '<section id="%1$s" class="widget %2$s">',
 									'after_widget' => '</section>',
 									'before_title' => '<h3 class="wordappTitleHeader widget-title">',
@@ -41,9 +41,9 @@ class WordAppClass_widgets  {
 
 
 			register_sidebar( array(
-									'name' => 'Mobile Sidebar Footer',
+									'name' => 'Mobile Footer',
 									'id' => 'wordapp-mobile-sidebar-footer',
-									'description' => 'Mobile app and site side bar footer below content',
+									'description' => 'Mobile app and site footer below content',
 									'before_widget' => '<section id="%1$s" class="widget %2$s">',
 									'after_widget' => '</section>',
 									'before_title' => '<h3 class="wordappTitleFooter widget-title">',

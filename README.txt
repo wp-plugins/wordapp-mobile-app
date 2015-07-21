@@ -5,7 +5,7 @@ Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, 
 
 Requires at least: 2.7
 Tested up to: 4.2.2
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -182,6 +182,9 @@ Huge changes have been made to the structure of the app builder.
 = Version 1.1.1 =
 * CSS Editor
 * Faster loading theme
+= Version 1.2.1 =
+* Improved image uploader
+* Unlock clicking
 
 == Upgrade notice ==
 

@@ -18,3 +18,11 @@ echo '<img src="'.esc_url($data['logo']).'" style="height:20px">';
 
 	<div data-role="content" data-theme="a">
 		
+		<div class="">
+			
+					  
+<div  class="widget-area" role="complementary">	<?php
+	
+ dynamic_sidebar( 'wordapp-mobile-sidebar-header' ); 
+			?>
+</div>
