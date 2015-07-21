@@ -1,9 +1,9 @@
 <?php
 include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php';
+$url = "http://vimeo.com/api/v2/".VIMEO_VIDEO."/videos.json";
+$request =  wp_remote_retrieve_body(wp_remote_get($url));
 
-$request = wp_remote_get('http://vimeo.com/api/v2/'.VIMEO_VIDEO.'/videos.json');
-
-$posts = json_decode(wp_remote_retrieve_body( $request ));
+$posts = json_decode( $request );
 
 ?>
 	

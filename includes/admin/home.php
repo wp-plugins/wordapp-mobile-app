@@ -427,6 +427,7 @@ else if($active_tab == "step4"){
 	
 	
 	<?php 
+	$u = '';
 	if($varColor['Title'] ==""){
 		$tickOnOff = "tickOn.png";
 		$completed = "";

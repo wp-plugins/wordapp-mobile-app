@@ -2,14 +2,14 @@
 if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
-
+	$active_tab ='';
 	 if( isset( $_GET[ 'tab' ] ) ) {
              $active_tab = $_GET[ 'tab' ];
     							} 
 ?>
 <div class="wrap">
    
-   <div class="wordAppheader"><a href="<?php echo MAINURL; ?>" class="wordApplogo"><img style="  width: 100%;max-width:250px" src="<?php echo plugin_dir_url(  ).APPNAME.'/images/logo.png'; ?>"></a> <div class="wordAppsubscribe">
+   <div class="wordAppheader"><a href="<?php echo MAINURL; ?>" class="wordApplogo"><img style="  width: 100%;max-width:250px" src="<?php echo plugin_dir_url(APPNAME.'/images/logo.png', __FILE__); ?>logo.png"></a> <div class="wordAppsubscribe">
 	  <h3 style="margin:0px">Subscribe to our newsletter</h3>
 	   <form method="post" target="_blank" action="http://app-developers.fr/lists/?p=subscribe&id=3" name="subscribeform">
 	   <table border=0>
@@ -65,7 +65,7 @@ $activate = json_decode(wp_remote_retrieve_body(wp_remote_get("http://mobile-roc
  <?php  if(get_option( 'wordapp_firstVisit' ) == "22"){  ?>
 		   <div style="" id="firstVisit" style="display:none;">
 				<center>
-				<img  src="<?php echo plugin_dir_url(  ).APPNAME.'/images/logo.png'; ?>">
+				<img  src="<?php echo plugin_dir_url(APPNAME.'/images/logo.png',__FILE__); ?>logo.png">
 				<h1>First Visit Message</h1>
 				
 				<p class="submit"><input type="submit" name="submit" id="hideModal" class="button button-primary button-hero" onclick="javascript:location.href='';" value="I Agree. Let's Get Started!"></p>

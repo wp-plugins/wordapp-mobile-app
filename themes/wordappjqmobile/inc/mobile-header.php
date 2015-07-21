@@ -1,6 +1,6 @@
 
 
-<div data-role="page" id="" data-theme="">
+<div data-role="page">
 
 	<div data-role="header"  data-position="fixed" >
 		<a href="#" data-icon="back"  data-iconpos="notext" data-rel="back" title="Go back">Back</a>
