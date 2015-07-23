@@ -112,7 +112,7 @@ jQuery(document).ready(function($){
     		$("#sideInfo").show();
 	});
 	$('#pushNoteSend').click(function(){
-    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val()+ '&email=' +  $('#email').val()+ '&download=' +  $('#download').val();
+    		window.location.href = 'http://mobile-rockstar.com/app/pay.php?user=' + $('#user').val()+ '&email=' +  $('#email').val()+ '&url=' +  $('#url').val()+ '&download=' +  $('#download').val();
 	});
 	$('#goToWordApp').click(function(){
     		window.location.href = 'admin.php?page=WordAppBuilder';

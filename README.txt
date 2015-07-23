@@ -4,8 +4,8 @@ Donate link:
 Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, buddypress app,iOS app, app builder, build a mobile app, WooCommerce app
 
 Requires at least: 2.7
-Tested up to: 4.2.2
-Stable tag: 1.3
+Tested up to: 4.2.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,12 @@ Some of the more features & other services we offer :
 * Geo Targeted Push notifications
 * Mobile Themes customisation 
 * Mobile site design
+
+Premium Mobile app with push notifications
+
+1. Your mobile site html app is free forever.
+2. If you invite 8 people your android app is free too.
+3. Pay $9.99 a month and you will get iOS app, android app, html mobile site, push notifications and all the premium features.
 
 
 **Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
@@ -187,6 +193,8 @@ Huge changes have been made to the structure of the app builder.
 * Unlock clicking
 = Version 1.3 =
 * Install of latest apps SDK
+= Version 1.4 =
+* Upgrades to work with 4.2.3
 
 == Upgrade notice ==
 

@@ -629,7 +629,7 @@ Your <del>first month</del> two months for free (Android App + Web App)!<br />';
 Your first month for free (Android App + Web App)!<br />';
 			echo'	<input type="hidden" name="download" id="download"  value="1">';
 		}
-?>				<input type="hidden" name="user" id="user"  value="<?php echo get_bloginfo('url') ?>">
+?>				<input type="hidden" name="url" id="url"  value="<?php echo get_bloginfo('url') ?>">
 <hr>
 
 <input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish my app!">
