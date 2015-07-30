@@ -5,7 +5,7 @@ Tags: mobile app, wordapp, convert to app, mobile converter, iphone, app, ipod, 
 
 Requires at least: 2.7
 Tested up to: 4.2.3
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,12 @@ Some of the mobile app builder features :
 * Edit the CSS to create your own mobile theme.
 * Compatible with BuddyPress.
 
-Native apps can be uploaded to **Google Play** and the **iPhone App Store** The mobile website is supported on iPhones, Android smartphones, Windows Phone 8, Firefox OS. **Compatible browsers**: Safari, Google Chrome, Android - Native Browser, Internet Explorer 10 and Firefox.
+
+Native apps can be uploaded to **Google Play** and the **iPhone App Store** The mobile website is supported on iPhones, Android smartphones, Windows Phone 8, Firefox OS. 
+
+We are currently working on better integration with **Buddypress** & **WooCommerce**
+
+**Compatible browsers**: Safari, Google Chrome, Android - Native Browser, Internet Explorer 10 and Firefox.
 
 **NEW!** You can now build mobile apps for social network (using BuddyPress), Forum (using bbPress), Dating App, and much more. Thanks to the power behind wordpress you can install all the plugins on your mobile app too.
 
@@ -50,7 +55,7 @@ Premium Mobile app with push notifications
 
 **GET YOUR MOBILE APP FOR FREE**
 
-Invite 8 friends and we will publish your app for free!
+Invite 8 friends and we will create your app for free!
 
 
 Thanks to the amazing power of wordpress you can change many features straight in the admin panel.
@@ -195,10 +200,14 @@ Huge changes have been made to the structure of the app builder.
 * Install of latest apps SDK
 = Version 1.4 =
 * Upgrades to work with 4.2.3
+= Version 1.5 =
+* Better theme integration
 
 == Upgrade notice ==
 
 
 
 == Arbitrary section 1 ==
+* We are currently upgrading the plugin for better woo commerce & buddy press integration.
+
 

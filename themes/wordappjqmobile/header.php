@@ -37,7 +37,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	
+	<script type="text/javascript">
+$(document).bind("mobileinit", function () {
+    $.mobile.ajaxEnabled = false;
+});
+jQuery("a[href^='http']:not([href*='" + document.domain + "'])").each(function () {
+	jQuery(this).attr("target", "_blank");
+});
+	</script>	
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+
+		$(window).bind('beforeunload', function(){
+   
+    var interval = setInterval(function(){
+        $.mobile.loading('show');
+        clearInterval(interval);
+    },1);    
+});
+
+$(document).on('pageshow', '[data-role="page"]', function(){  
+    var interval = setInterval(function(){
+        $.mobile.loading('hide');
+        clearInterval(interval);
+    },1);      
+});
+</script>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo  get_template_directory_uri() ?>/slick/slick.css" />
     <script src="<?php echo  get_template_directory_uri() ?>/slick/slick.min.js"></script>

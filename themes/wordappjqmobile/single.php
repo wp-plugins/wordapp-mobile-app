@@ -21,7 +21,6 @@
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	</div>
-</div>
+	
 
 <?php  include dirname( __FILE__ ) . '/inc/mobile-footer.php'; ?>
