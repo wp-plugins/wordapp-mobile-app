@@ -78,7 +78,7 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php 
-			if($data['style'] == 'list'){
+			if($data['style'] == 'list' || $data['style'] == ''){
 			echo '<ul data-role="listview" data-inset="true">';
 			}
 			?>
@@ -97,7 +97,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 			<?php 
-			if($data['style'] == 'list'){
+			if($data['style'] == 'list' ||  $data['style'] == ''){
 			echo '</ul>';
 			}
 			?>

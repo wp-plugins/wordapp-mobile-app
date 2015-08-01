@@ -84,7 +84,7 @@ $(document).on('pageshow', '[data-role="page"]', function(){
 			
 			<h1 role="heading"><?php
 if($data['logo'] == ""){
- if (is_home()) echo get_bloginfo('name'). " | ". get_bloginfo('description'); else wp_title('',true); 
+echo get_bloginfo('name'); 
 }else{
 echo '<img src="'.esc_url($data['logo']).'" style="height:20px">';
 }
