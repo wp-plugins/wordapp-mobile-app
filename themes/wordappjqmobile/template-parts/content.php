@@ -6,6 +6,7 @@
  */
 
 
+$data = (array)get_option( 'WordApp_options' );
 
 if($data['style'] == 'tiles'){
 
