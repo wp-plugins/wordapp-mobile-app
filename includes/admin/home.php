@@ -67,46 +67,23 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 				
 	<hr>
           <p>
-        <label for="WordApp_options[style]"><?php echo __('App Style' ); ?></label>
-       <div style="left: 100px;top: -70px;position: relative;">
+        <label for="WordApp_options[style]"><?php echo __('Post list style' ); ?></label>
+       <div style="left: 150px;top: -70px;position: relative;">
 			<input type="radio" name="WordApp_options[style]" id="listStyle" value="list" <?php echo ($varColor['style'] == 'list' ? 'checked' : '')?>><?php echo __('List of posts'); ?><br>
 			
 			 <p id="pageInfoList" style="<?php echo ($varColor['style'] !== 'list' ? 'display:none' : '')?>">
-       				   <?php $args = array(
-											'depth'                 => 0,
-											'child_of'              => 0,
-											'selected'              => $varColor['list_page_id'],
-											'echo'                  => 1,
-											'name'                  => 'WordApp_options[list_page_id]',
-											'id'                    => null, // string
-											'show_option_none'      => __('Select a category'), // string
-											'show_option_no_change' => null, // string
-											'option_none_value'     => null, // string
-							
-								 ); 
-							wp_dropdown_categories( $args ); ?>
+       				  
 		   </p>
 		   
 		   
 		   	<input type="radio" name="WordApp_options[style]" id="tilesStyle" value="tiles" <?php echo ($varColor['style'] == 'tiles' ? 'checked' : '')?>><?php echo __('Large Tiles'); ?><br>
 		   
 			 <p id="pageInfoTiles" style="<?php echo ($varColor['style'] !== 'tiles' ? 'display:none' : '')?>">
-       				   <?php $args = array(
-											'depth'                 => 0,
-											'child_of'              => 0,
-											'selected'              => $varColor['tiles_page_id'],
-											'echo'                  => 1,
-											'name'                  => 'WordApp_options[tiles_page_id]',
-											'id'                    => null, // string
-											'show_option_none'      => __('Select a category'), // string
-											'show_option_no_change' => null, // string
-											'option_none_value'     => null, // string
-							
-								 ); 
-							wp_dropdown_categories( $args ); ?>
+       				  
 		   </p>
-		   
-		   
+			</div>
+		    <label for="WordApp_options[style]"><?php echo __('Redirect to page :' ); ?></label>
+		   <div style="left: 150px;top: -50px;position: relative;">
 		   	<input type="radio" name="WordApp_options[style]" id="pageStyle" value="page" <?php echo ($varColor['style'] == 'page' ? 'checked' : '')?>><?php echo __('A page'); ?>
        
         <p id="pageInfo" style="<?php echo ($varColor['style'] !== 'page' ? 'display:none' : '')?>">
@@ -621,23 +598,24 @@ else if($active_tab == "step4"){
 </table>
 				*/ 
 if($activate->download =='UNLIMITED'){
-				echo '<h3 style="color:red;background-color:yellow;">Publish your app for free, <del>one month</del> two months for free</h3>
-Your <del>first month</del> two months for free (Android App + Web App)!<br />';
-		echo'	<input type="hidden" name="download" id="download"  value="2">';
+			echo '<h3 style="color:red;background-color:yellow;">Your android app is now free!<br /> Hit publish below!<br />';
+			echo'	<input type="hidden" name="download" id="download"  value="">';
+			echo'	<input class="button-primary" type="button" name="send"  id="submitPub" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish Android App!"></h3>';
+
 		}else{
-			echo '<h3 style="color:red;background-color:yellow;">Publish your app for free, one month for free</h3>
-Your first month for free (Android App + Web App)!<br />';
-			echo'	<input type="hidden" name="download" id="download"  value="1">';
+			echo '<h3 style="color:red;background-color:yellow;">Invite some friends & get your app for free</h3>';
+			echo '<h4><a href="admin.php?page=WordAppMoreDownloads">Get your app for free!</a></h4>';
+			echo'	<input type="hidden" name="download" id="download"  value="0">';
+			echo'	<hr>Or Pay $9.99 per month for our premium service.<br />';
+			echo'	<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Upgrage to Premium">';
+
 		}
 ?>				<input type="hidden" name="url" id="url"  value="<?php echo get_bloginfo('url') ?>">
-<hr>
-
-<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Publish my app!">
 							
 <?php 
 			if($activate->download =='0') { 
 			// echo '<hr> Your first month for free (Android App + Web App)! <br /><input value="Use my credits" id="submitPub"  type="button" class="button button-primary" name="publish">'; 
-	   echo '<h4><a href="admin.php?page=WordAppMoreDownloads">Get a second month for free!</a></h4>';
+	   echo '<h4><a href="admin.php?page=WordAppMoreDownloads">Get your app for free!</a></h4>';
 											}
 		
 			

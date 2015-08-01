@@ -10,12 +10,20 @@
  *
  * @package WordAppjqmobile
  */
-
+$data = (array)get_option( 'WordApp_options' );
+	if($data['style'] == "page" && is_home()){
+		//echo "hello";
+		if($_GET['WordApp_demo'] == '1'){
+			$extra ="?WordApp_demo=1";
+		}
+			
+		wp_redirect( get_permalink( $data['page_id']  ).''.$extra); 
+		exit;  
+	}
 get_header(); ?>
 
 <div class="">
  <?php
-	$data = (array)get_option( 'WordApp_options' );
 	
 	$varSlideshow = (array)get_option( 'WordApp_slideshow' );
     	
@@ -60,76 +68,48 @@ get_header(); ?>
 			?>
 </div>
 	
-	<?php 
+		<?php if ( have_posts() ) : ?>
 
-if($data['style'] == 'page'){
-	  echo '<h2>'.get_the_title( $data['page_id'] ).'</h2>'; 
-  $post = get_post($data['page_id']); 
-$post = get_post($data['page_id']); 
-$content = apply_filters('the_content', $post->post_content); 
-echo $content; 
-   } elseif($data['style'] == 'tiles'){
-	
-	$recent_posts = wp_get_recent_posts();
-	
-	//print_r($recent_posts);
-	//exit;
-	foreach( $recent_posts as $recent ){
-		
-		?>
+			<?php if ( is_home() && ! is_front_page() ) : ?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
+			<?php endif; ?>
 
-	<div class="box" style="text-align: left;">
-					<a href="<?php echo get_permalink($recent["ID"]) ?>"  class="boxLink">
-						<div class="boxImgDiv">
-							<?php 
-		$default_attr = array('class' => "imgBox");
-		echo get_the_post_thumbnail($recent["ID"],'post-thumbnail', $default_attr) ?> 
-						 <h2 class="boxH2"><span class="boxH2span"><?php echo $recent["post_title"]; ?></span></h2></div>
-						<p><strong><?php echo get_the_author($recent["post_author"]); ?></strong></p>
-						<p class="txtBox"><?php echo get_the_excerpt($recent["ID"]); ?></p>
-						<div class="boxFoot"><span class="time"><?php echo $recent["post_date"]; ?></span></div>	
-					</a>
-				</div>
-	<?php
-	
-	}
-}else{
-	
-	?>
-		<ul data-role="listview" data-inset="true">
-			
-	<?php
-	$recent_posts  = wp_get_recent_posts();
-	
-	//print_r($recent_posts);
-	//exit;
-	foreach( $recent_posts as $recent ){
-		
-		?>
-				<li>
-					<a href="<?php echo get_permalink($recent["ID"]) ?>">
-						<?php 
-				$default_attr = array('class' => "imgBoxList");
-		echo get_the_post_thumbnail($recent["ID"],array('200','200'),$default_attr ) ?> 
-						<p class="ui-li-aside" style="display:none"><?php echo $recent["post_date"]; ?></p>
-						<h3><?php echo $recent["post_title"]; ?></h3>
-						<p><strong><?php echo get_the_excerpt($recent["ID"]); ?></strong></p>
-						<div style="display:none"><?php echo get_the_excerpt($recent["ID"]); ?></div>
-						
-					</a>
-				</li>
-			
+			<?php /* Start the Loop */ ?>
 			<?php 
-				}
+			if($data['style'] == 'list'){
+			echo '<ul data-role="listview" data-inset="true">';
+			}
 			?>
-	</ul>
-	<?php 
 	
+			<?php while ( have_posts() ) : the_post(); ?>
+
+				<?php
+
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
+				?>
+
+			<?php endwhile; ?>
+			<?php 
+			if($data['style'] == 'list'){
+			echo '</ul>';
+			}
+			?>
+			<?php the_posts_navigation(); ?>
+
+		<?php else : ?>
+
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+		<?php endif; ?>
 	
-	
-}
-	?>
-	
+
 	
 	
 

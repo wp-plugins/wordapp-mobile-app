@@ -33,7 +33,8 @@ if ( !current_user_can( 'manage_options' ) )  {
 			 update_option( 'WordApp_ga', array('mobilesite' => 'on'));
 			  }
 		      else{
-$activate = json_decode(wp_remote_retrieve_body(wp_remote_get("http://mobile-rockstar.com/app/activate.php?user=".get_bloginfo('admin_email')."&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json&noemail=yes")));	
+				 $url = "http://mobile-rockstar.com/app/activate.php?user=".get_bloginfo('admin_email')."&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json&noemail=yes";
+				$activate = json_decode(wp_remote_retrieve_body(wp_remote_get($url)));	
 		  }
 		   ?>
 			

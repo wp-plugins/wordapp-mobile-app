@@ -1,9 +1,9 @@
 <?php
 /*
-  Plugin Name: WordApp - Wordpress to Mobile App for Free
+  Plugin Name: WordApp - Wordpress to Mobile App for Woocommerce & Buddypress
   Plugin URI: http://mobile-rockstar.com/
-  Description: Convert your wordpress site/blog in to a mobile app for Free. 
-  Version:1.5
+  Description: Convert your wordpress site/blog in to a mobile app Woocommerce & Buddypress. 
+  Version:1.6
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -15,10 +15,18 @@ define('PLUGIN_URL', 'http://mobile-rockstar.com/app/main/app.php');
 define('VIMEO_VIDEO', 'WordApp');
 define('MAINURL', 'admin.php?page=WordApp');
 define('DEFAULT_WordApp_THEME', 'wordappjqmobile');
-require_once dirname( __FILE__ ) . '/includes/classes/widgets.php';
-require_once dirname( __FILE__ ) . '/includes/classes/create_json.php';
+define( 'WORDAPP_DIR',dirname( __FILE__ ) );
+
+
+require_once WORDAPP_DIR. '/includes/classes/widgets.php';
+require_once WORDAPP_DIR. '/includes/classes/create_json.php';
+require_once WORDAPP_DIR. '/includes/classes/front_end_widgets.php';
+require_once WORDAPP_DIR. '/includes/classes/plugins.php';
+
 $widgets = new WordAppClass_widgets;  // include the custom posts and meta boxes
 $createJson = new WordAppClass_json; 
+$createJson = new WordApp_widget; 
+$orgPlugins = new WordAppClass_org_plugins;
 class WordAppClass
 {
 
@@ -29,7 +37,7 @@ static private $class = null;
   function __construct()
 	{
 		// actions
-	  global $widgets,$createJson;
+	  global $widgets,$createJson,$orgPlugins;
  		$this->WordApp_mobile_detect();
 		$this->init();
 		add_action('init', array($this, 'init'), 1);
@@ -50,7 +58,7 @@ static private $class = null;
 		add_action('init', array($createJson, 'WordApp_produce_my_json'));
 	  	add_action('init', array($widgets, 'WordApp_register_widget'));
 	  	add_action('plugins_loaded', array($this, 'WordApp_mobile_detect'));
-	  
+	  add_filter( 'init', array( $orgPlugins, 'WordApp_change_theme_root' ) );
 		 /*- WP REST API -*/
 		//$this->include_wp_rest_api();
 	  
@@ -168,7 +176,7 @@ function WordAppStats(){
 	echo "Stats";	
 }
 function WordAppSettings(){
-	
+	global $orgPlugins;
 	include plugin_dir_path( __FILE__ ).'includes/admin/settings.php';
 }
 function WordAppMoreDownloads(){
@@ -345,73 +353,11 @@ function WordApp_options_enqueue_scripts() {
 }//END CLASS
 
 
+function wordapp_register_widgets() {
+	register_widget( 'WordApp_widget' );
+}
 
-/* ----  Widgets ------ */
-
-class WordApp_widget extends WP_Widget {
- 
- 
-    /** constructor -- name this the same as the class above */
-    function WordApp_widget() {
-        parent::WP_Widget(false, $name = 'WordAPP Download our app');	
-    }
- 
-    /** @see WP_Widget::widget -- do not rename this */
-    function widget($args, $instance) {	
-        extract( $args );
-        $title 		= apply_filters('widget_title', $instance['title']);
-        $message 	= $instance['message'];
-		 $message2 	= $instance['message2'];
-        ?>
-              <?php echo $before_widget; ?>
-                  <?php if ( $title )
-                        echo $before_title . $title . $after_title; ?>
-							<ul>
-								<li><a href="<?php echo $message; ?>"><img src="<?php echo plugins_url(APPNAME.'/images/widget/applestore_en.png')?>"></a></li>
-								<li><a href="<?php echo $message2; ?>"><img src="<?php echo plugins_url(APPNAME.'/images/widget/googleplaystore_en.png')?>"></a></li>
-							</ul>
-<a href="http://mobile-rockstar.com/download/" style="float:right"><img src="<?php echo plugins_url(APPNAME.'/images/widget/poweredby_en.png')?>"></a>
-              <?php echo $after_widget; ?>
-        <?php
-    }
- 
-    /** @see WP_Widget::update -- do not rename this */
-    function update($new_instance, $old_instance) {		
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['message'] = strip_tags($new_instance['message']);
-		$instance['message2'] = strip_tags($new_instance['message2']);
-        return $instance;
-    }
- 
-    /** @see WP_Widget::form -- do not rename this */
-    function form($instance) {	
- 
-        $title 		= esc_attr($instance['title']);
-        $message	= esc_attr($instance['message']);
-		 $message2	= esc_attr($instance['message2']);
-        ?>
-         <p>
-          <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p>
-		<p>
-          <label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('iTunes Link'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>" type="text" value="<?php echo $message; ?>" />
-        </p>
-		<p>
-          <label for="<?php echo $this->get_field_id('message2'); ?>"><?php _e('Play Store Link'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('message2'); ?>" name="<?php echo $this->get_field_name('message2'); ?>" type="text" value="<?php echo $message2; ?>" />
-        </p>
-        
-        <?php 
-    }
- 
- 
-} // end class WordApp_widget
-
-
-add_action('widgets_init', create_function('', 'return register_widget("WordApp_widget");'));
+add_action( 'widgets_init', 'wordapp_register_widgets' );
 
 
 function WordAppClass()

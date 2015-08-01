@@ -20,7 +20,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 							<h2 style="text-align: center;">
 							<?php echo __('Get your second month for free with ').APPNAME_FRIENDLY.__('!'); ?>	
 							</h2>	
-							<p class="message_invite"><?php echo __('Invite 8 friends to  ').APPNAME_FRIENDLY.__(' , and get your second month for free!');
+							<p class="message_invite"><?php echo __('Invite 8 friends to  ').APPNAME_FRIENDLY.__(' , and get your app for  free!');
 echo '<br />'; echo __('If you need all features straight away, '); ?><a href="admin.php?page=WordAppPN"><? echo __('upgrade your account.'); ?></a></p>
 							
 							<center>

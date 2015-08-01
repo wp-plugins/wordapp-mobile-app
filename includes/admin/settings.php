@@ -51,13 +51,33 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 	<h3>Emails & Newsletter</h3>
 								
 	<hr>					
-								  <p>
-      
-			 <?php echo __('Do you want to be informed about latest security updates & news from WordApps ?' ); ?><br />
-       <label for="WordApp_GA[email]"><?php echo __('Newsletter ? ' ); ?></label> <input type="radio" name="WordApp_ga[email]" id="emailOff" value="off" <?php echo ($varGA['email'] == 'off' ? 'checked' : '')?>><?php echo __('off'); ?> 
-		<input type="radio" name="WordApp_ga[email]" id="emailOn" value="" <?php echo ($varGA['email'] == '' ? 'checked' : '')?>><?php echo __('on'); ?>
-         </p>						
+	 <p>
+			<?php echo __('Do you want to be informed about latest security updates & news from WordApps ?' ); ?><br />
+    	   	<label for="WordApp_GA[email]"><?php echo __('Newsletter ? ' ); ?></label> <input type="radio" name="WordApp_ga[email]" id="emailOff" value="off" <?php echo ($varGA['email'] == 'off' ? 'checked' : '')?>><?php echo __('off'); ?> 
+			<input type="radio" name="WordApp_ga[email]" id="emailOn" value="" <?php echo ($varGA['email'] == '' ? 'checked' : '')?>><?php echo __('on'); ?>
+     </p>						
+	<p>
+		<h3>Deactivate Plugins on mobile </h3>
 								
+	<hr>
+		<?php echo __('Some plugins might not look great on mobile but work fine on desktop. Here you can deactivate plugins on the mobile version & app.' ); ?><br />
+		<?php echo __('Checked plugins will be deactivated on mobile only' ); ?><br />
+								<b><?php _e('Alpha testing this part'); ?></b>								<?php
+				$the_plugs = get_option('active_plugins'); 
+				echo '<ul>';
+					foreach($the_plugs as $key => $value) {
+							$string = explode('/',$value); // Folder name will be displayed
+						
+							$checked = (in_array($string[0],$varGA['plugin_rm']) == true ? 'checked' : '');
+							echo '<li><input type="checkbox" name="WordApp_ga[plugin_rm][]" id="emailOn" '.$checked.' value="'.$string[0].'"> '.$string[0] .'</li>';
+					}
+
+
+				echo '</ul>';
+
+								//$orgPlugins->WordApp_rm_plugins();
+								?>						
+	</p>
 	<?php submit_button(); ?>
    
 						</div>

@@ -31,7 +31,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								<td style="width:33%"><img src="<?php echo plugins_url(APPNAME.'/images/heart.png'); ?>"><h3><?php echo __('Our Community');?></h3><?php echo __('We started as a bunch of geek and now we have an amazing mobile rockstars community.');?></td>
 							</tr>
 							</table>
-							<h1>Invite your friends and get more months for FREE!</h1>
+							<h1>Invite your friends and get your android app for FREE!</h1>
 									
 <input class="button-primary" type="button" name="send"  id="goToWordApp" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Get started now!">
 		

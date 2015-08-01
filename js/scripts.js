@@ -275,12 +275,12 @@ jQuery(document).ready(function($){
 						 'blogname': blogname,
 						 'url': url
 							},
-				 	 dataType: 'json',
+				 	 dataType: 'jsonp',
 				 	 success: function(jsonData) {
 					 //alert(jsonData['pnTrue']);
 						 if(jsonData.inviteSent === 'true'){
 							 alert("THANK YOU!! Your message was sent! Your account will be updated in a few hours.");
-							 
+							 window.location.href = 'admin.php?page=WordAppBuilder&tab=step4';
 						 }else{
 							 
 							  alert("There seems to be a problem. Please check &  try again.");
@@ -288,8 +288,9 @@ jQuery(document).ready(function($){
 						 }
   					},
   			error: function() {
-   					 alert('Error loading - There seems to be a problem. Please check your internet connection.');
- 					 }
+   					  	alert("THANK YOU!! Your message was sent! Your account will be updated in a few hours.");
+						window.location.href = 'admin.php?page=WordAppBuilder&tab=step4'; 
+						 }
 				});
            }
 	 }); // END INVITE

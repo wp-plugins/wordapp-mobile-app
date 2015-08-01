@@ -10,20 +10,12 @@
  *
  * @package WordAppjqmobile
  */
-$data = (array)get_option( 'WordApp_options' );
-	if($data['style'] == "page" && is_home()){
-		//echo "hello";
-		if($_GET['WordApp_demo'] == '1'){
-			$extra ="?WordApp_demo=1";
-		}
-			
-		wp_redirect( get_permalink( $data['page_id']  ).''.$extra); 
-		exit;  
-	}
+
 get_header(); ?>
 
 <div class="">
  <?php
+	$data = (array)get_option( 'WordApp_options' );
 	
 	$varSlideshow = (array)get_option( 'WordApp_slideshow' );
     	
@@ -68,48 +60,8 @@ get_header(); ?>
 			?>
 </div>
 	
-		<?php if ( have_posts() ) : ?>
-
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
-
-			<?php /* Start the Loop */ ?>
-			<?php 
-			if($data['style'] == 'list'){
-			echo '<ul data-role="listview" data-inset="true">';
-			}
-			?>
+	<?php woocommerce_content(); ?>
 	
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-			<?php 
-			if($data['style'] == 'list'){
-			echo '</ul>';
-			}
-			?>
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
-	
-
 	
 	
 
