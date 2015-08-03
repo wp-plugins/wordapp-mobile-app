@@ -9,7 +9,7 @@ class WordAppClass_org_plugins   {
 
 	function WordApp_remove_plugin( $plugin ) 
 	{
-		if ( isset( $plugin->remove_plugin[ $name ] ) && $plugin->remove_plugin[ $name ]  ) {
+		/* if ( isset( $plugin->remove_plugin[ $name ] ) && $plugin->remove_plugin[ $name ]  ) {
 			if ( $name == 'jetpack' ) {
 				//Removing plugins on mobile 
 				remove_filter( 'the_content', array( 'Jetpack_Likes', 'post_likes' ), 30, 1 );
@@ -23,10 +23,11 @@ class WordAppClass_org_plugins   {
 
 			}
 	}
+	*/
 	}
 	
 	function WordApp_rm_plugins( ) 
-	{
+	{ /*
 		global $wp_filter;
 		$plugins = (array)get_option( 'WordApp_ga' );
  		$plugins = $plugins['plugin_rm'];
@@ -66,6 +67,8 @@ class WordAppClass_org_plugins   {
 			 		}
 			 echo '</pre>';
 			 return;
+			 */
+		
 	}
 function wordapp_return_false() {
 	return false;

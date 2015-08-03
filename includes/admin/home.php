@@ -36,6 +36,15 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
   	<?php
   	if( $active_tab == ""){
   	settings_fields( 'WordApp_main' );
+		
+		
+			if(!isset($varColor['Title'])) $varColor['Title']='';
+			if(!isset($varColor['Color'])) $varColor['Color']='';
+			if(!isset($varColor['logo'])) $varColor['logo']='';
+			if(!isset($varColor['style'])) $varColor['style']='';
+		
+			if(!isset($varColor['page_id'])) $varColor['page_id']='';
+		
   	?>
 	  <h3>Colors   <span style="float:right" class="spanHelp"><img src="<?php echo plugins_url(APPNAME.'/images/help.png')?>" style="vertical-align: middle;" width="24px"  height="24px"> Top & bottom bar colors</span>	</h3>
 				
@@ -69,7 +78,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
           <p>
         <label for="WordApp_options[style]"><?php echo __('Post list style' ); ?></label>
        <div style="left: 150px;top: -70px;position: relative;">
-			<input type="radio" name="WordApp_options[style]" id="listStyle" value="list" <?php echo ($varColor['style'] == 'list' ? 'checked' : '')?>><?php echo __('List of posts'); ?><br>
+			<input type="radio" name="WordApp_options[style]" id="listStyle" value="list" <?php echo ($varColor['logo'] == 'list' ? 'checked' : '')?>><?php echo __('List of posts'); ?><br>
 			
 			 <p id="pageInfoList" style="<?php echo ($varColor['style'] !== 'list' ? 'display:none' : '')?>">
        				  
@@ -113,6 +122,16 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
         }
         else if( $active_tab == "step2"){
         settings_fields( 'WordApp_main_menu' );
+			
+			
+		
+			if(!isset($varMenu['side'])) $varMenu['side']='';
+			if(!isset($varMenu['top'])) $varMenu['top']='';
+			if(!isset($varMenu['menu'])) $varMenu['menu']='';
+			if(!isset($varMenu['menuTop'])) $varMenu['menuTop']='';
+			if(!isset($varMenu['bottom'])) $varMenu['bottom']='';
+			if(!isset($varMenu['menuBottom'])) $varMenu['menuBottom']='';
+			if(!isset($varMenu['menuTop'])) $varMenu['menuTop']='';
        ?>
 					 <h3>Side Menu 	</h3>
 	<hr>
@@ -171,6 +190,8 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 	$i =0;
 	foreach ( (array) $menu_items as $key => $menu_item ) {
    
+			if(!isset($varMenu['bottomIcon'][$i])) $varMenu['bottomIcon'][$i]='';
+		
     		 echo "<li><span>". $menu_item->title."</span>";
     		// echo $varMenu['bottomIcon'][$i];
      ?>
@@ -187,6 +208,14 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
         </div>
         <?php
         }else if($active_tab == "step3"){
+			
+			
+			if(!isset($varStructure['icon'])) $varStructure['icon']='';
+			if(!isset($varStructure['splash'])) $varStructure['splash']='';
+			if(!isset($varStructure['description'])) $varStructure['description']='';
+			if(!isset($varStructure['keywords'])) $varStructure['keywords']='';
+			if(!isset($varStructure['cat'])) $varStructure['cat']='';
+			
         settings_fields( 'WordApp_main_structure' );
        
         ?>
@@ -276,6 +305,12 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 else if($active_tab == "slideshow"){
         settings_fields( 'WordApp_main_slideshow' );
        
+			
+	if(!isset($varSlideshow['one'])) $varSlideshow['one']='';
+	if(!isset($varSlideshow['two'])) $varSlideshow['two']='';
+	if(!isset($varSlideshow['three'])) $varSlideshow['three']='';
+	if(!isset($varSlideshow['four'])) $varSlideshow['four']='';
+	if(!isset($varSlideshow['five'])) $varSlideshow['five']='';
         ?>
 			 <p>
 			  <label for="WordApp_menu[top]"><?php echo __('Activate the slideshow ?' ); ?></label>
@@ -385,6 +420,13 @@ else if($active_tab == "slideshow"){
 		}
 else if($active_tab == "step4"){
 			
+	if(!isset($varColor['Title'])) $varColor['Title']='';
+	if(!isset($varStructure['description'])) $varStructure['description']='';
+	if(!isset($varStructure['cat'])) $varStructure['cat']='';
+	if(!isset($varStructure['icon'])) $varStructure['icon']='';
+	if(!isset($varStructure['splash'])) $varStructure['splash']='';
+	if(!isset($varStructure['certificate'])) $varStructure['certificate']='';
+	
 			?><center>
 <h1><?php echo __('This is where it gets complicated!');?></h1>
 <h2><?php echo __('but that is why we are here, right?');?></h2>
@@ -587,7 +629,7 @@ else if($active_tab == "step4"){
 	</tbody>
 	<tfoot>
 	<tr>
-		<th class="row-title" style="color:green"><center><?php echo __( 'Only $9.99 USD per month' ); ?></center></th>
+		<th class="row-title" style="color:green"><center><?php echo __( 'Only $19.99 USD per month' ); ?></center></th>
 	
 	</tr>
 		<tr>

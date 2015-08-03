@@ -89,6 +89,11 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
  	//$pageItems =  $pageList['items']; 
  
  	 for ($i = 0; $i < count($pageList); ++$i) {
+		 if (!isset( $pageList[$i]['content']) ) $pageList[$i]['content'] = "";
+		  if (!isset( $pageList[$i]['content']) ) $pageList[$i]['content'] = "";
+		  if (!isset( $pageList[$i]['modified']) ) $pageList[$i]['modified'] = "";
+		  if (!isset( $pageList[$i]['title']) ) $pageList[$i]['title'] = "";
+		  if (!isset( $pageList[$i]['ID']) ) $pageList[$i]['ID'] = "";
        ?>
        			  <div class="box" style="text-align: left;">
                          

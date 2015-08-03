@@ -101,7 +101,7 @@ echo '<img src="'.esc_url($data['logo']).'" style="height:20px">';
 		
 		$menu_items = wp_get_nav_menu_items($varMenu['menuTop']);
 
-	
+	$menu_list ='';
 	foreach ( (array) $menu_items as $key => $menu_item ) {
 	    $title = $menu_item->title;
 	    $url = $menu_item->url;
