@@ -67,7 +67,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 	</tbody>
 	<tfoot>
 	<tr>
-		<th class="row-title" style="color:green"><center><?php echo __( 'Only $9.99 USD per month' ); ?></center></th>
+		<th class="row-title" style="color:green"><center><?php echo __( 'Only $19.99 USD per month' ); ?></center></th>
 	
 	</tr>
 	</tfoot>
