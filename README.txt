@@ -48,7 +48,7 @@ Premium Mobile app with push notifications
 
 1. Your mobile site html app is free forever.
 2. If you invite 8 people your android app is free too.
-3. Pay $9.99 a month and you will get iOS app, android app, html mobile site, push notifications and all the premium features.
+3. Pay $19.99 a month and you will get iOS app, android app, html mobile site, push notifications and all the premium features.
 
 
 **Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
