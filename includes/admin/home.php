@@ -648,7 +648,7 @@ if($activate->download =='UNLIMITED'){
 			echo '<h3 style="color:red;background-color:yellow;">Invite some friends & get your app for free</h3>';
 			echo '<h4><a href="admin.php?page=WordAppMoreDownloads">Get your app for free!</a></h4>';
 			echo'	<input type="hidden" name="download" id="download"  value="0">';
-			echo'	<hr>Or Pay $9.99 per month for our premium service.<br />';
+			echo'	<hr>Or Pay $19.99 per month for our premium service.<br />';
 			echo'	<input class="button-primary" type="button" name="send"  id="pushNoteSend" style="margin: 12px;width: 300px;height: 54px;font-size: 21px;" value="Upgrage to Premium">';
 
 		}
