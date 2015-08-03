@@ -1,7 +1,7 @@
-=== WordApp | Mobile App iPhone & Android woocommerce, buddypress ===
+=== WordApp | Mobile App iPhone & Android WooCommerce, BuddyPress ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
-Tags: mobile app, woocommerce, wordapp, buddypress, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, buddypress app,iOS app, app builder, build a mobile app, WooCommerce app
+Tags: mobile app, WooCommerce, wordapp, BuddyPress, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, BuddyPress app,iOS app, app builder, build a mobile app, WooCommerce app
 
 Requires at least: 2.7
 Tested up to: 4.2.3
@@ -9,10 +9,10 @@ Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website to Mobile app & mobile website. woocommerce & buddypress Compatible
+WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website to Mobile app & mobile website. WooCommerce & BuddyPress Compatible
 
 == Description ==
-WordApp | **Mobile App** iPhone & Android Native app & **Mobile site** in one. Now **woocommerce** & **buddypress** Compatible
+WordApp | **Mobile App** iPhone & Android Native app & **Mobile site** in one. Now **WooCommerce** & **BuddyPress** Compatible
 
 WordApp is a wordpress plugin that converts your blog/website in to a mobile app & mobile website. Built by a community of mobile app geeks we are really proud to offer the very first mobile app building plugin for wordpress.
 
@@ -31,7 +31,7 @@ Some of the mobile app builder features :
 
 Native apps can be uploaded to **Google Play** and the **iPhone App Store** The mobile website is supported on iPhones, Android smartphones, Windows Phone 8, Firefox OS. 
 
-We are currently working on better integration with **Buddypress** & **WooCommerce**
+We are currently working on better integration with **BuddyPress** & **WooCommerce**
 
 **Compatible browsers**: Safari, Google Chrome, Android - Native Browser, Internet Explorer 10 and Firefox.
 
@@ -176,7 +176,7 @@ No, due to the way the app framework works (fetching the json) you must have a d
 Huge changes have been made to the structure of the app builder.
 * Fixed any bugs
 * Added new builder
-* Improve the compatibility with other plugins buddypress, forms etc
+* Improve the compatibility with other plugins BuddyPress, forms etc
 * Mobile site builder added
 = Version 1.0.1 =
 * Fixing bug showing the wordapp instead of client server  

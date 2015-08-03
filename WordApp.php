@@ -1,8 +1,8 @@
 <?php
 /*
-  Plugin Name: WordApp - Wordpress to Mobile App for Woocommerce & Buddypress
+  Plugin Name: WordApp - Wordpress to Mobile App for WooCommerce & BuddyPress
   Plugin URI: http://mobile-rockstar.com/
-  Description: Convert your wordpress site/blog to mobile app Woocommerce & Buddypress. 
+  Description: Convert your wordpress site/blog to mobile app WooCommerce & BuddyPress. 
   Version:1.7
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
