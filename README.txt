@@ -1,4 +1,4 @@
-=== WordApp | Mobile App iPhone & Android WooCommerce, BuddyPress ===
+=== WordApp | Mobile App iPhone & Android WooCommerce BuddyPress ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
 Tags: mobile app, WooCommerce, wordapp, BuddyPress, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, BuddyPress app,iOS app, app builder, build a mobile app, WooCommerce app
