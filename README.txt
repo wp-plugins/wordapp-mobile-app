@@ -45,10 +45,9 @@ Some of the more features & other services we offer :
 * Mobile site design
 
 Premium Mobile app with push notifications
-
 1. Your mobile site html app is free forever.
 2. If you invite 8 people your android app is free too.
-3. Pay $19.99 a month and you will get iOS app, android app, html mobile site, push notifications and all the premium features.
+3. Premium features and you will get iOS app, android app, html mobile site, push notifications and all the premium features.
 
 
 **Thanks for all your feedback. Thanks to all your suggestions we have rebuilt the mobile app builder. You can now use any of the 50,000+ wordpress plugins**
@@ -108,7 +107,7 @@ Yes they are native apps & are submited to the app store and google play.
 Yes, you can use & create your app for free. You are requested to invite some friends :).
 
 = Are there any premium options? =
-Yes, to get the iOS app and if you want to send push notifications you will be charged a monthly fee of $9.99.
+Yes, to get the iOS app and if you want to send push notifications you will be charged a monthly fee of $19.99.
 
 = Can I just upload to android/iphone =
 Yes, you can choose either or both.
