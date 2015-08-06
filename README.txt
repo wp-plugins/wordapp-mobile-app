@@ -5,7 +5,7 @@ Tags: mobile app, WooCommerce, wordapp, BuddyPress, convert to app, mobile conve
 
 Requires at least: 2.7
 Tested up to: 4.2.3
-Stable tag: 1.7
+Stable tag: 1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -203,6 +203,8 @@ Huge changes have been made to the structure of the app builder.
 * Better theme integration
 = Version 1.7 =
 * Critical updates
+= Version 1.8 =
+* Improvements on user interface.
 
 == Upgrade notice ==
 
