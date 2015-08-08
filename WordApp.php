@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for WooCommerce & BuddyPress
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog to mobile app WooCommerce
-  Version:1.8
+  Version:1.9
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -16,6 +16,8 @@ define('VIMEO_VIDEO', 'WordApp');
 define('MAINURL', 'admin.php?page=WordApp');
 define('DEFAULT_WordApp_THEME', 'wordappjqmobile');
 define( 'WORDAPP_DIR',dirname( __FILE__ ) );
+define( 'WORDAPP_DIR_URL',plugins_url('/',__FILE__) );
+
 
 
 require_once WORDAPP_DIR. '/includes/classes/widgets.php';
@@ -73,10 +75,9 @@ function WordApp_mobile_detect(){
 	if ( ! class_exists( 'Mobile_Detect' ) ){
 		require plugin_dir_path( __FILE__ ).'third/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
-
-		$is_mobile = $detect->isMobile();
-			
+		$is_mobile = $detect->isMobile();		
 	}
+	
 	$varGA = (array)get_option( 'WordApp_ga' ); 
 	
 	  		if ( isset($_GET['WordApp_mobile_site'])  && $_GET['WordApp_mobile_site'] === 'desktop' ) {
@@ -179,6 +180,10 @@ function WordAppMoreDownloads(){
 
 	include plugin_dir_path( __FILE__ ).'includes/admin/more_downloads.php';
 }
+	function WordAppMarketing(){
+
+	include plugin_dir_path( __FILE__ ).'includes/admin/marketing_gear.php';
+}
 function WordAppCrowd(){
 
 		
@@ -276,6 +281,7 @@ return $newinput;
 	add_submenu_page( $menu_slug, __('Push Notifications'), __('Push Notifications'), $capability, 'WordAppPN', array($this, 'WordAppPN') );
 	// add_submenu_page( $menu_slug, __('Stats'), __('Stats'), $capability, 'WordAppStats', array($this, 'WordAppStats') ); // USING GA until find a better solution
 	add_submenu_page( $menu_slug, __('CSS Editor'), __('CSS Editor'), $capability, 'WordAppCss', array($this, 'WordAppCss') );
+	add_submenu_page( $menu_slug, __('Marketing Gear'), __('Marketing Gear'), $capability, 'WordAppMarketing', array($this, 'WordAppMarketing') );
 	
 	add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	add_submenu_page( $menu_slug, __('The Crowd'), __('The Crowd'), $capability, 'WordAppCrowd', array($this, 'WordAppCrowd') );

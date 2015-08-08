@@ -23,9 +23,10 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
    <h3>Add your own CSS to your app</h3>
     <?php 
 
-if(!isset($varCSS['css'])) $varCSS['css']='';
+
 $varCSS = (array)get_option( 'WordApp_css' );
  		settings_fields( 'WordApp_main_css' );	
+if(!isset($varCSS['css'])) $varCSS['css']='';
 if($varCSS['css'] == ""){
 	
 	$varCSS['css'] ="/*********************************/

@@ -10,7 +10,13 @@
  *
  * @package WordAppjqmobile
  */
+
+
 $data = (array)get_option( 'WordApp_options' );
+$varSlideshow = (array)get_option( 'WordApp_slideshow' );
+    
+ if(!isset($data['style'])) $data['style']='';
+ if(!isset($varSlideshow['onoff'])) $varSlideshow['onoff']=''; 
 	if($data['style'] == "page" && is_home()){
 		//echo "hello";
 		if($_GET['WordApp_demo'] == '1'){
@@ -24,9 +30,7 @@ get_header(); ?>
 
 <div class="">
  <?php
-	
-	$varSlideshow = (array)get_option( 'WordApp_slideshow' );
-    	
+		
 	if($varSlideshow['onoff'] =="on"){
 	  ?>
      <div class="slider images" style="margin: 0 auto; max-width: 740px">

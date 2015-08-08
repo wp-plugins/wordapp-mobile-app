@@ -7,7 +7,6 @@
  * @package WordAppjqmobile
  */
 
-
 		$data = (array)get_option( 'WordApp_options' );
     	$varColor = (array)get_option( 'WordApp_options' );
     	$varGA = (array)get_option( 'WordApp_ga' ); // Settings page
@@ -15,6 +14,9 @@
      	$varStructure = (array)get_option( 'WordApp_structure' );
 	  	$varSlideshow = (array)get_option( 'WordApp_slideshow' );
      
+ 
+	include( dirname( __FILE__ ) . '/inc/config.php' );
+
 ?>
 
 <!DOCTYPE html>

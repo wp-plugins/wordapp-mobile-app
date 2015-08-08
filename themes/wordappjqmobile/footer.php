@@ -1,4 +1,7 @@
 <?php
+
+	include( dirname( __FILE__ ) . '/inc/config.php' );
+
 /**
  * The template for displaying the footer.
  *
@@ -21,6 +24,22 @@
 $varMenu = (array)get_option( 'WordApp_menu' );
 
 $varCss = (array)get_option( 'WordApp_css' );
+$data = (array)get_option( 'WordApp_options' );
+
+			if(!isset($data['Title'])) $varColor['Title']='';
+			if(!isset($data['Color'])) $data['Color']='';
+			if(!isset($data['logo'])) $data['logo']='';
+			if(!isset($data['style'])) $data['style']='';
+			if(!isset($data['page_id'])) $data['page_id']='';
+			if(!isset($varMenu['side'])) $varMenu['side']='';
+			if(!isset($varMenu['top'])) $varMenu['top']='';
+			if(!isset($varMenu['menu'])) $varMenu['menu']='';
+			if(!isset($varMenu['menuTop'])) $varMenu['menuTop']='';
+			if(!isset($varMenu['bottom'])) $varMenu['bottom']='';
+			if(!isset($varMenu['menuBottom'])) $varMenu['menuBottom']='';
+			if(!isset($varMenu['menuTop'])) $varMenu['menuTop']='';
+			if(!isset($varCss['css'])) $varCss['css']='';
+
 
   if($varMenu['menuBottom'] !== "" && $varMenu['bottom'] == "on" ) {
  echo '<div data-role="footer" data-position="fixed"  data-tap-toggle="false"><div data-role="navbar" data-iconpos="top"><ul>';
@@ -56,7 +75,7 @@ $varCss = (array)get_option( 'WordApp_css' );
 
 			<?php wp_footer(); 
 
-$data = (array)get_option( 'WordApp_options' );
+
     	?>
 		</div>
 

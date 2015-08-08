@@ -2,6 +2,8 @@
 if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
+include WORDAPP_DIR.'/includes/config.php';
+
 	$active_tab ='';
 	 if( isset( $_GET[ 'tab' ] ) ) {
              $active_tab = $_GET[ 'tab' ];

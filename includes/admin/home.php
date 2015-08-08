@@ -186,13 +186,18 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 						
 						
 	$menu_items = wp_get_nav_menu_items($varMenu['menuBottom']);
-
+	if(!isset($menu_item)) $menu_item='';
+	if(!isset($menu_item['title'])) $menu_item['title']='';
+	if(!isset($title)) $title='';
+		
 	$i =0;
 	foreach ( (array) $menu_items as $key => $menu_item ) {
    
 			if(!isset($varMenu['bottomIcon'][$i])) $varMenu['bottomIcon'][$i]='';
+			
 		
-    		 echo "<li><span>". $menu_item->title."</span>";
+    		
+			echo "<li><span>". $menu_item['title']."</span>";
     		// echo $varMenu['bottomIcon'][$i];
      ?>
      
@@ -305,7 +310,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 else if($active_tab == "slideshow"){
         settings_fields( 'WordApp_main_slideshow' );
        
-			
+	if(!isset($varSlideshow['onoff'])) $varSlideshow['onoff']='';
 	if(!isset($varSlideshow['one'])) $varSlideshow['one']='';
 	if(!isset($varSlideshow['two'])) $varSlideshow['two']='';
 	if(!isset($varSlideshow['three'])) $varSlideshow['three']='';
@@ -629,7 +634,7 @@ else if($active_tab == "step4"){
 	</tbody>
 	<tfoot>
 	<tr>
-		<th class="row-title" style="color:green"><center><?php echo __( 'Only $19.99 USD per month' ); ?></center></th>
+		<th class="row-title" style="color:green"><center><?php echo __( 'Only $9.99 USD per month' ); ?></center></th>
 	
 	</tr>
 		<tr>
@@ -792,7 +797,8 @@ function WordApp_nav_menu_drop_down( $name, $selected = '', $print = TRUE )
         $print and print $out;
         return $out;
     }
-
+if(!isset($title)) $title='';
+	if(!isset($active)) $active='';
     // Set name and ID to let you use a <label for='id_$name'>
     $out = "<select name='$name' id='id_$name'>\n";
   $out .= "\t<option value='' $active $title>".__('Select a menu')."</option>\n";

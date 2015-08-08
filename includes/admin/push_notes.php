@@ -23,7 +23,8 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 
 								$varGA = (array)get_option( 'WordApp_ga' );
  								settings_fields( 'WordApp_main_ga' );
-								
+								if(!isset($varGA['apiLogin'])) $varGA['apiLogin']='';
+								if(!isset($varGA['apiKey'])) $varGA['apiKey']='';
 
 							if(json_decode(wp_remote_retrieve_body(wp_remote_get("http://mobile-rockstar.com/app/pn.php?login=".$varGA['apiLogin']."&apiKey=".$varGA['apiKey']."&longUrl=&format=json")))->pn == "false"){	
 								?>

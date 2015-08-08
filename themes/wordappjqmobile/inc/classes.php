@@ -10,8 +10,9 @@ class Theme_Walker_Category extends Walker_Category {
 	 * @param object $category Category data object.
 	 * @param int $depth Depth of category in reference to parents.
 	 * @param array $args
+	 *&$output, $category, $depth = 0, $args = Array, $id = 0
 	 */
-	function start_el(&$output, $category, $depth, $args) {
+	function start_el(&$output, $category, $depth = 0, $args = array(), $id = 0) {
 		extract($args);
 
 		$cat_name = esc_attr( $category->name );

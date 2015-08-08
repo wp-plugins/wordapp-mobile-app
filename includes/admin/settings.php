@@ -22,6 +22,11 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
     <?php  
     		$varGA = (array)get_option( 'WordApp_ga' );
  			settings_fields( 'WordApp_main_ga' );
+
+			if(!isset($varGA['email'])) $varGA['email'] ='';
+			if(!isset($varGA['apiKey'])) $varGA['apiKey'] ='';
+			if(!isset($varGA['apiLogin'])) $varGA['apiLogin'] ='';
+			if(!isset($varGA['google'])) $varGA['google'] ='';
   	?>
 				<h3>Activate mobile site</h3>
 								
@@ -56,6 +61,8 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
     	   	<label for="WordApp_GA[email]"><?php echo __('Newsletter ? ' ); ?></label> <input type="radio" name="WordApp_ga[email]" id="emailOff" value="off" <?php echo ($varGA['email'] == 'off' ? 'checked' : '')?>><?php echo __('off'); ?> 
 			<input type="radio" name="WordApp_ga[email]" id="emailOn" value="" <?php echo ($varGA['email'] == '' ? 'checked' : '')?>><?php echo __('on'); ?>
      </p>						
+	
+	<?php /*							
 	<p>
 		<h3>Deactivate Plugins on mobile </h3>
 								
@@ -78,6 +85,8 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								//$orgPlugins->WordApp_rm_plugins();
 								?>						
 	</p>
+	*/
+	?>
 	<?php submit_button(); ?>
    
 						</div>

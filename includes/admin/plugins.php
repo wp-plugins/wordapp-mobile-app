@@ -13,6 +13,14 @@ $postas = json_decode(wp_remote_retrieve_body( $request ),true);
 				
 		<?php		
 		foreach ($postas as $posta) {
+			if(!isset($posta['title'])) $posta['title'] ='';
+			if(!isset($posta['thumbnail_small'])) $posta['thumbnail_small'] ='';
+			if(!isset($posta['price'])) $posta['price'] ='';
+			if(!isset($posta['description'])) $posta['description'] ='';
+			if(!isset($posta['updated'])) $posta['updated'] ='';
+			if(!isset($posta['user_url'])) $posta['user_url'] ='';
+			if(!isset($posta['user_name'])) $posta['user_name'] ='';
+			if(!isset($posta['compatibility'])) $posta['compatibility'] ='';
 			?>
 <div class="plugin-card plugin-card-akismet">
 			<div class="plugin-card-top wordapp-plugin-card-top">
