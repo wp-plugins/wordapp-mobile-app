@@ -1,4 +1,4 @@
-=== WordApp | Mobile App iPhone & Android WooCommerce BuddyPress ===
+=== WordApp | Mobile App iPhone & Android WooCommerce BuddyPress FREE ===
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
 Tags: mobile app, WooCommerce, wordapp, BuddyPress, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, BuddyPress app,iOS app, app builder, build a mobile app, WooCommerce app
@@ -9,7 +9,7 @@ Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website to Mobile app & mobile website. WooCommerce & BuddyPress Compatible
+WordApp | Mobile App iPhone & Android Free - Convert Wordpress blog/website to Mobile app & mobile website. WooCommerce & BuddyPress FREE
 
 == Description ==
 WordApp | **Mobile App** iPhone & Android Native app & **Mobile site** in one. Now **WooCommerce** & **BuddyPress** Compatible
