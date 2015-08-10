@@ -39,10 +39,20 @@ $data = (array)get_option( 'WordApp_options' );
 			if(!isset($varMenu['menuBottom'])) $varMenu['menuBottom']='';
 			if(!isset($varMenu['menuTop'])) $varMenu['menuTop']='';
 			if(!isset($varCss['css'])) $varCss['css']='';
+			if(!isset($_GET['WordApp_demo'])) $_GET['WordApp_demo'] = "";
 
-
+ 
+ echo '<div data-role="footer" data-position="fixed"  data-tap-toggle="false">';
+	if($_GET['WordApp_demo'] != '1'){
+		?>
+<div>
+		<iframe src="http://52.27.101.150/dev/ads/ads.php?url=<?php echo urldecode(site_url());?>" width="320" height="50" style="display:block;width:320px;height:50px;margin:0 auto;border:none"></iframe>
+				</div>
+<?php
+	
+	}
   if($varMenu['menuBottom'] !== "" && $varMenu['bottom'] == "on" ) {
- echo '<div data-role="footer" data-position="fixed"  data-tap-toggle="false"><div data-role="navbar" data-iconpos="top"><ul>';
+ echo '<div data-role="navbar" data-iconpos="top"><ul>';
 	
 		$menu_items = wp_get_nav_menu_items($varMenu['menuBottom']);
 
@@ -67,10 +77,10 @@ $data = (array)get_option( 'WordApp_options' );
      <?php
 		   $i++;
     }
-    echo "</ul></div></div>";
+    echo "</ul></div>";
     }
    ?>
-   
+   </div>
 
 
 			<?php wp_footer(); 

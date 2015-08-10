@@ -3,7 +3,7 @@
   Plugin Name: WordApp - Wordpress to Mobile App for WooCommerce & BuddyPress
   Plugin URI: http://mobile-rockstar.com/
   Description: Convert your wordpress site/blog to mobile app WooCommerce
-  Version:1.9
+  Version:1.9.1
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -71,7 +71,10 @@ static private $class = null;
 
 function WordApp_mobile_detect(){
 	  /*-- Theme switch for mobile sites --*/
-	
+	if(!isset($_GET['WordApp_mobile_site'])) $_GET['WordApp_mobile_site'] = "";
+	if(!isset($_GET['WordApp_demo'])) $_GET['WordApp_demo'] = "";
+	if(!isset($_GET['WordApp_mobile_app'])) $_GET['WordApp_mobile_app'] = "";
+
 	if ( ! class_exists( 'Mobile_Detect' ) ){
 		require plugin_dir_path( __FILE__ ).'third/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
@@ -87,7 +90,7 @@ function WordApp_mobile_detect(){
 				$_COOKIE['WordApp_mobile_site'] = 'desktop';
 
 			}
-	  		if (isset($is_mobile) && $is_mobile == true && ($_GET['WordApp_mobile_site'] === 'mobile'  || $_GET['WordApp_mobile_site']  =='' )) {
+	  		if (isset($is_mobile) && $is_mobile == true && ($_GET['WordApp_mobile_site'] == 'mobile' || $_GET['WordApp_mobile_site'] == '')) {
 
 				setcookie( 'WordApp_mobile_site','mobile', time()+3600*6, '/' );
 
@@ -146,12 +149,7 @@ function WordApp_change_theme_root_uri()
 	}
 	
 	
-	
-/* -- On install  -- */
-function WordApp_activate() {
 
-	 //file_get_contents("http://mobile-rockstar.com/app/activate.php?user=".get_bloginfo('admin_email')."&url=".urlencode(get_bloginfo('url'))."&longUrl=&format=json");
-}
 
 /* ----  Admin Pages ------ */
 function WordAppHomepage(){
@@ -383,7 +381,7 @@ function WordAppClass()
 
 /* ---- / Widgets ------ */
 /*--- Install Hook ----*/
-register_activation_hook( __FILE__, array('WordAppClass', 'WordApp_activate') );
+//register_activation_hook( __FILE__, array('WordAppClass', 'WordApp_activate') );
 	  
 // initialize
 WordAppClass();
