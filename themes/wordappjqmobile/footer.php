@@ -68,7 +68,7 @@ $data = (array)get_option( 'WordApp_options' );
        		$thedddURL = $menu_item->url;
        		$target = "";
        }
-		 
+		if(!isset($varMenu['bottomIcon'][$i])) $varMenu['bottomIcon'][$i]='';
        ?>
        
        <li data-filtertext="wai-aria voiceover accessibility screen reader">

@@ -2,8 +2,8 @@
 /*
   Plugin Name: WordApp - Wordpress to Mobile App for WooCommerce & BuddyPress
   Plugin URI: http://mobile-rockstar.com/
-  Description: Convert your wordpress site/blog to mobile app WooCommerce
-  Version:1.9.1
+  Description: Convert your wordpress site/blog to mobile app works with WooCommerce  & BuddyPress
+  Version:1.9.2
   Author:Mobile-Rockstar.com
   Author URI: http://mobile-rockstar.com/
   License: GPLv3
@@ -23,10 +23,11 @@ define( 'WORDAPP_DIR_URL',plugins_url('/',__FILE__) );
 require_once WORDAPP_DIR. '/includes/classes/widgets.php';
 require_once WORDAPP_DIR. '/includes/classes/create_json.php';
 require_once WORDAPP_DIR. '/includes/classes/front_end_widgets.php';
-//require_once WORDAPP_DIR. '/includes/classes/plugins.php';
+require_once WORDAPP_DIR. '/includes/classes/mobile_plugins.php';
 
 $widgets = new WordAppClass_widgets;  // include the custom posts and meta boxes
 $createJson = new WordAppClass_json; 
+$mobilePlugin = new WordAppClass_mobile_plugin; 
 //$wordappWidget = new WordApp_widget; 
 //$orgPlugins = new WordAppClass_org_plugins;
 class WordAppClass
@@ -38,7 +39,7 @@ static private $class = null;
   function __construct()
 	{
 		// actions
-	  global $widgets,$createJson,$orgPlugins;
+	  global $widgets,$createJson,$orgPlugins, $mobilePlugin ;
  		$this->WordApp_mobile_detect();
 		$this->init();
 		add_action('init', array($this, 'init'), 1);
@@ -51,12 +52,15 @@ static private $class = null;
         /*- actions & filters -*/
 		add_action( 'admin_enqueue_scripts', array($this, 'WordApp_add_color_picker'));
 		add_filter( 'json_prepare_post',  array($this, 'api_to_wordapp'), 10, 3 );
-		add_action( 'admin_menu',  array($this, 'register_WordApp_menu') );
+		add_action( 'admin_menu',  array($this, 'register_WordApp_menu'),9 );
 		add_action( 'admin_init',  array($this, 'WordAppSettingValues') );
 		add_action('init', array($createJson, 'WordApp_produce_my_json'));
 	  	add_action('init', array($widgets, 'WordApp_register_widget'));
+	  	add_action('init', array($mobilePlugin, 'wordapp_comstom_posts'));
 	  	add_action('plugins_loaded', array($this, 'WordApp_mobile_detect'));
 	  add_filter( 'init', array( $this, 'WordApp_change_theme_root' ) );
+	  add_action('admin_head-edit.php',array($mobilePlugin, 'wordapp_addCustomImportButton'));
+
 		 /*- WP REST API -*/
 		//$this->include_wp_rest_api();
 	  
@@ -278,14 +282,13 @@ return $newinput;
 	add_submenu_page( $menu_slug, __('App Builder'), __('App Builder'), $capability, 'WordAppBuilder', array($this, 'WordAppBuilder') );	
 	add_submenu_page( $menu_slug, __('Push Notifications'), __('Push Notifications'), $capability, 'WordAppPN', array($this, 'WordAppPN') );
 	// add_submenu_page( $menu_slug, __('Stats'), __('Stats'), $capability, 'WordAppStats', array($this, 'WordAppStats') ); // USING GA until find a better solution
-	add_submenu_page( $menu_slug, __('CSS Editor'), __('CSS Editor'), $capability, 'WordAppCss', array($this, 'WordAppCss') );
 	add_submenu_page( $menu_slug, __('Marketing Gear'), __('Marketing Gear'), $capability, 'WordAppMarketing', array($this, 'WordAppMarketing') );
-	
-	add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	add_submenu_page( $menu_slug, __('The Crowd'), __('The Crowd'), $capability, 'WordAppCrowd', array($this, 'WordAppCrowd') );
 	add_submenu_page( $menu_slug, __('Tell a friend'), __('Tell a friend'), $capability, 'WordAppMoreDownloads', array($this, 'WordAppMoreDownloads') );
 	add_submenu_page( $menu_slug, __('Video Tutorials'), __('Video Tutorials'), $capability, 'WordAppVideos', array($this, 'WordAppVideos') );
 	add_submenu_page( $menu_slug, __('Settings'), __('Settings'), $capability, 'WordAppSettings', array($this, 'WordAppSettings') );
+	add_submenu_page( $menu_slug, __('CSS Editor'), __('CSS Editor'), $capability, 'WordAppCss', array($this, 'WordAppCss') );
+	add_submenu_page( $menu_slug, __('Plugins & Themes'), __('Plugins & Themes'), $capability, 'WordAppPluginsAndThemes', array($this, 'WordAppPluginsAndThemes') );
 	
 	
 		

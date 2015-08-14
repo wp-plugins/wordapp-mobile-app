@@ -82,30 +82,16 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar_misc.php
 								); ?></span></h3>
 
 						<div class="inside">
-							<div style="height:400px; overflow:scroll;">
-							<?php
-	$json = wp_remote_retrieve_body(wp_remote_get('http://mobile-rockstar.com/?json_route=/posts'));
-	$pageList = json_decode($json,true);
- 	//$pageItems =  $pageList['items']; 
- 
- 	 for ($i = 0; $i < count($pageList); ++$i) {
-		 if (!isset( $pageList[$i]['content']) ) $pageList[$i]['content'] = "";
-		  if (!isset( $pageList[$i]['content']) ) $pageList[$i]['content'] = "";
-		  if (!isset( $pageList[$i]['modified']) ) $pageList[$i]['modified'] = "";
-		  if (!isset( $pageList[$i]['title']) ) $pageList[$i]['title'] = "";
-		  if (!isset( $pageList[$i]['ID']) ) $pageList[$i]['ID'] = "";
-       ?>
-       			  <div class="box" style="text-align: left;">
-                         
-                            <h4 class="boxH2"><?php echo $pageList[$i]['title'] ?></h4>
-                            <p class="txtBox"><?php echo substr(strip_tags($pageList[$i]['content']),0,100)?>... 
-							 <br>[<a href="app.post.php?page_id=<?php echo $pageList[$i]['ID'] ?>"><?php echo __('Read More'); ?></a>]
-							 </p>
-                            <div class="boxFoot"><span class="time"><?php echo $pageList[$i]['modified']; ?></span></div>
-                        <hr></div>		
- 	<?php
-    		}
-	?>
+							<div style="">
+							<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=315852465241124";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+							<div class="fb-page" data-href="https://www.facebook.com/WordAppMobileApp" data-width="275" data-height="600" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/WordAppMobileApp"><a href="https://www.facebook.com/WordAppMobileApp">WordApp</a></blockquote></div></div>
 							</div>
 						</div>
 					

@@ -180,24 +180,29 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 			
 			
 						
+	if(!isset($menu_item)) $menu_item='';
+	//if(!isset($menu_items)) $menu_items='';
+	//if(!isset($menu_item->title)) $menu_item->title='';
+	if(!isset($title)) $title='';
 						
 						
 						
 						
 						
 	$menu_items = wp_get_nav_menu_items($varMenu['menuBottom']);
-	if(!isset($menu_item)) $menu_item='';
-	if(!isset($menu_item['title'])) $menu_item['title']='';
-	if(!isset($title)) $title='';
-		
-	$i =0;
-	foreach ( (array) $menu_items as $key => $menu_item ) {
-   
-			if(!isset($varMenu['bottomIcon'][$i])) $varMenu['bottomIcon'][$i]='';
+
 			
-		
-    		
-			echo "<li><span>". $menu_item['title']."</span>";
+	$i =0;
+	foreach ($menu_items as $key => $menu_item ) {
+   	
+		if(!isset($varMenu['bottomIcon'][$i])) $varMenu['bottomIcon'][$i]='';
+			if(!isset($varMenu['bottomIcon'][$i]) && $varMenu['bottomIcon'][$i] !="") $varMenu['bottomIcon'][$i]='';
+			
+		echo "<li><span>";
+    		if(isset($menu_item->title)  && $menu_item->title !=''){
+					echo $menu_item->title;
+			}
+		echo "</span>";
     		// echo $varMenu['bottomIcon'][$i];
      ?>
      
@@ -207,6 +212,7 @@ include trailingslashit( plugin_dir_path( __FILE__ ) ) . 'admin_toolbar.php';
 		<?php
    $i++;
 	}
+			
 					?></ul>
 		
 		<input style="position: relative;float: right;top: -223px;right: 210px;" id="jqIcons" type="button" class="button" value="<?php echo __( 'Preview Icons' ); ?>" />

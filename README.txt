@@ -2,10 +2,9 @@
 Contributors: mobilerockstar, Buildappsbiz
 Donate link: 
 Tags: mobile app, WooCommerce, wordapp, BuddyPress, convert to app, mobile converter, iphone, app, ipod, theme, apple, mac, wordpress, mobile, android, smartphone, apps,iOS,WordPress mobile, WordPress mobile app, mobile blog app, BuddyPress app,iOS app, app builder, build a mobile app, WooCommerce app
-
 Requires at least: 2.7
 Tested up to: 4.2.3
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -10,7 +10,18 @@ $postas = json_decode(wp_remote_retrieve_body( $request ),true);
 	<div id="poststuff">
 		
 		<div id="the-list">
-				
+			<?php
+				if(isset($_GET['install']) && $_GET['install'] == '1'){
+							$id = $_GET['id'];
+							$my_post = array(
+								  'post_title'    => $postas[$id]['title'],
+								 'post_type'    => 'wordapp_plugins',
+								  'post_content'  =>  $postas[$id]['content'],
+								  'post_status'   => 'publish'
+							);
+					wp_insert_post( $my_post );
+				}
+			?>	
 		<?php		
 		foreach ($postas as $posta) {
 			if(!isset($posta['title'])) $posta['title'] ='';
@@ -29,7 +40,12 @@ $postas = json_decode(wp_remote_retrieve_body( $request ),true);
 					<h4><?php echo $posta['title']; ?></h4>
 				</div>
 				<div class="action-links">
-					<ul class="plugin-action-buttons"><li><a href="http://mobile-rockstar.com/app/payPlugin.php?plugin=<?php echo urlencode($posta['title']); ?>&price=<?php echo $posta['price']; ?>" class=" install-now button" href="" aria-label="Buy Now" data-name="Buy Now">Buy Now</a></li><li>$ <?php echo $posta['price']; ?> USD</li></ul>				</div>
+					<?php if($posta['price'] == "FREE"): ?>
+						<ul class="plugin-action-buttons"><li><a href="?page=WordAppPluginsAndThemes&install=1&id=<?php echo $posta['id']; ?>" class=" install-now button"  aria-label="Install Now" data-name="Install Now">Install Now</a></li><li>FREE</li></ul>				</div>
+				
+					<?php else: ?>
+					<ul class="plugin-action-buttons"><li><a href="http://mobile-rockstar.com/app/payPlugin.php?plugin=<?php echo urlencode($posta['title']); ?>&price=<?php echo $posta['price']; ?>" class=" install-now button"  aria-label="Buy Now" data-name="Buy Now">Buy Now</a></li><li>$ <?php echo $posta['price']; ?> USD</li></ul>				</div>
+				<?php endif; ?>
 				<div class="desc column-description">
 					<p><?php echo $posta['description']; ?></p>
 					
